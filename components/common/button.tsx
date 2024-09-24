@@ -1,6 +1,7 @@
 import React from 'react';
-import { Text, TouchableOpacity, StyleSheet, View, Alert, DimensionValue } from 'react-native';
+import { Text, TouchableOpacity, StyleSheet, View, DimensionValue } from 'react-native';
 import { constantStyles } from '@/constants/styles';
+import { useRouter } from 'expo-router';
 
 interface ButtonProps {
     label: string;
@@ -9,9 +10,11 @@ interface ButtonProps {
 }
 
 export function Button({ label, link, disabled }: ButtonProps) {
+    const router = useRouter();
+
     const styles = buttonStyles(225, 10);
     const onPress = () => {
-        Alert.alert('Naciśnięto!');
+        router.push('/search');
     };
 
     return (
