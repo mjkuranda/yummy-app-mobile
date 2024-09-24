@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - [Marek Kurańda](https://github.com/mjkuranda): Landing page.
 - [Marek Kurańda](https://github.com/mjkuranda): Application buttons.
-- [Marek Kurańda](https://github.com/mjkuranda): Initial `/search` page.
+- [Marek Kurańda](https://github.com/mjkuranda): Initial `/search` and `/meal-proposal` pages.
 
 ### Removed
 - [Marek Kurańda](https://github.com/mjkuranda): `/explore` page.

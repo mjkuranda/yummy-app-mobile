@@ -1,11 +1,11 @@
 import React from 'react';
 import { Text, TouchableOpacity, StyleSheet, View, DimensionValue } from 'react-native';
 import { constantStyles } from '@/constants/styles';
-import { useRouter } from 'expo-router';
+import { Href, useRouter } from 'expo-router';
 
 interface ButtonProps {
     label: string;
-    link: string;
+    link: Href<string | Object>;
     disabled?: boolean;
 }
 
@@ -14,7 +14,7 @@ export function Button({ label, link, disabled }: ButtonProps) {
 
     const styles = buttonStyles(225, 10);
     const onPress = () => {
-        router.push('/search');
+        router.push(link);
     };
 
     return (
