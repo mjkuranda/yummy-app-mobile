@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.1.0] - 2024-09-24
 ### Added
 - [Marek Kurańda](https://github.com/mjkuranda): Landing page.
+- [Marek Kurańda](https://github.com/mjkuranda): Application buttons.
 
 ## [1.0.0] - 2024-09-14
 ### Added

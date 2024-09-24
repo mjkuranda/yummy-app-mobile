@@ -1,8 +1,8 @@
-import { Button } from '@/components/common/button';
 import { Dimensions, StyleSheet, View } from 'react-native';
 import { constantStyles } from '@/constants/styles';
 import { blueDeFranceAlpha, honeyYellow } from '@/constants/colors';
 import { Heading } from '@/components/common/heading';
+import { Button } from '@/components/common/button';
 
 export function WelcomeScreenPanel() {
     const isLoggedIn = () => false;
@@ -11,8 +11,8 @@ export function WelcomeScreenPanel() {
         <View style={styles.mainContainer}>
             <Heading level={1} style={styles.headerPanel}>Yummy</Heading>
             <View style={styles.buttonContainer}>
-                <Button label={'Szukaj po składnikach'} link={'/search'} />
-                <Button label={'Propozycja dnia'} link={'/meal-proposal'} disabled={!isLoggedIn()} />
+                <Button label="Szukaj po składnikach" link="/search" />
+                <Button label="Propozycja dnia" link="/meal-proposal" disabled={!isLoggedIn()} />
             </View>
         </View>
     );
