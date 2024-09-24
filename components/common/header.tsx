@@ -1,4 +1,4 @@
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { Image, StyleSheet, View } from 'react-native';
 import { constantStyles } from '@/constants/styles';
 import { Heading } from '@/components/common/heading';
 import { cooper } from '@/constants/colors';
@@ -12,10 +12,9 @@ export function Header() {
                     <Image style={styles.logo} source={yummyLogo} />
                     <Heading level={1} style={{ marginLeft: 10 }}>Yummy</Heading>
                 </View>
-                <View style={constantStyles.flexCenter}>
-                    {/*<User />*/}
-                    <Text>Gość</Text>
-                </View>
+                {/*<View style={constantStyles.flexCenter}>*/}
+                {/*    <User />*/}
+                {/*</View>*/}
             </View>
         </View>
     );
