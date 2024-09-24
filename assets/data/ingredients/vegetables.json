@@ -1,0 +1,166 @@
+{
+    "carrot": {
+        "en": "carrot",
+        "pl": "marchewka"
+    },
+    "potato": {
+        "en": "potato",
+        "pl": "ziemniak"
+    },
+    "tomato": {
+        "en": "tomato",
+        "pl": "pomidor"
+    },
+    "onion": {
+        "en": "onion",
+        "pl": "cebula"
+    },
+    "cucumber": {
+        "en": "cucumber",
+        "pl": "ogórek"
+    },
+    "lettuce": {
+        "en": "lettuce",
+        "pl": "sałata"
+    },
+    "bell pepper": {
+        "en": "bell pepper",
+        "pl": "papryka"
+    },
+    "broccoli": {
+        "en": "broccoli",
+        "pl": "brokuła"
+    },
+    "spinach": {
+        "en": "spinach",
+        "pl": "szpinak"
+    },
+    "zucchini": {
+        "en": "zucchini",
+        "pl": "cukinia"
+    },
+    "cabbage": {
+        "en": "cabbage",
+        "pl": "kapusta"
+    },
+    "cauliflower": {
+        "en": "cauliflower",
+        "pl": "kalafior"
+    },
+    "garlic": {
+        "en": "garlic",
+        "pl": "czosnek"
+    },
+    "celery": {
+        "en": "celery",
+        "pl": "seler"
+    },
+    "green bean": {
+        "en": "green bean",
+        "pl": "zielona fasolka"
+    },
+    "asparagus": {
+        "en": "asparagus",
+        "pl": "szparag"
+    },
+    "sweet potato": {
+        "en": "sweet potato",
+        "pl": "batat"
+    },
+    "radish": {
+        "en": "radish",
+        "pl": "rzodkiewka"
+    },
+    "corn": {
+        "en": "corn",
+        "pl": "kukurydza"
+    },
+    "eggplant": {
+        "en": "eggplant",
+        "pl": "bakłażan"
+    },
+    "pea": {
+        "en": "pea",
+        "pl": "groch"
+    },
+    "kale": {
+        "en": "kale",
+        "pl": "kapusta włoska"
+    },
+    "brussels sprout": {
+        "en": "brussels sprout",
+        "pl": "brukselka"
+    },
+    "artichoke": {
+        "en": "artichoke",
+        "pl": "karczoch"
+    },
+    "beet": {
+        "en": "beet",
+        "pl": "burak czerwony"
+    },
+    "pumpkin": {
+        "en": "pumpkin",
+        "pl": "dynia"
+    },
+    "butternut squash": {
+        "en": "butternut squash",
+        "pl": "dynia zwyczajna"
+    },
+    "fennel": {
+        "en": "fennel",
+        "pl": "koper włoski"
+    },
+    "leek": {
+        "en": "leek",
+        "pl": "por"
+    },
+    "turnip": {
+        "en": "turnip",
+        "pl": "rzepa"
+    },
+    "rhubarb": {
+        "en": "rhubarb",
+        "pl": "rabarbar"
+    },
+    "paprika": {
+        "en": "paprika",
+        "pl": "papryka"
+    },
+    "sweet paprika": {
+        "en": "sweet paprika",
+        "pl": "słodka papryka"
+    },
+    "chili pepper": {
+        "en": "chili pepper",
+        "pl": "papryczka chili"
+    },
+    "chard": {
+        "en": "chard",
+        "pl": "boćwina"
+    },
+    "arugula": {
+        "en": "arugula",
+        "pl": "rukola"
+    },
+    "kohlrabi": {
+        "en": "kohlrabi",
+        "pl": "kalarepa"
+    },
+    "collard greens": {
+        "en": "collard greens",
+        "pl": "jarmuż"
+    },
+    "chicory": {
+        "en": "chicory",
+        "pl": "cykoria"
+    },
+    "snow pea": {
+        "en": "snow pea",
+        "pl": "groszek cukrowy"
+    },
+    "rutabaga": {
+        "en": "rutabaga",
+        "pl": "brukiew"
+    }
+}
