@@ -4,7 +4,7 @@ import { Footer } from '@/components/common/footer';
 import { SearchForm } from '@/components/app/search/search-form';
 import { SearchIngredientCategory } from '@/components/app/search/search-ingredient-category';
 import { orangeYellowCrayola } from '@/constants/colors';
-import { SearchProvider } from '@/contexts/search-context';
+import { SearchProvider } from '@/contexts/search.context';
 
 export default function SearchScreen() {
     return (

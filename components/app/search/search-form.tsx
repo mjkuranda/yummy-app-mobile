@@ -4,7 +4,7 @@ import { ReactNode } from 'react';
 import { constantStyles } from '@/constants/styles';
 import { useRouter } from 'expo-router';
 import { encodeIngredients } from '@/helpers/query.helper';
-import { useSearchContext } from '@/contexts/search-context';
+import { useSearchContext } from '@/contexts/search.context';
 
 interface SearchFormProps {
     children: ReactNode;

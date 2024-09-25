@@ -2,7 +2,7 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import { IngredientCategoryLabels } from '@/types/ingredient-category';
 import { cooper } from '@/constants/colors';
-import { useSearchContext } from '@/contexts/search-context';
+import { useSearchContext } from '@/contexts/search.context';
 
 interface SearchIngredientItemProps {
     ingredient: IngredientCategoryLabels;
