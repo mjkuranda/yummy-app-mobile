@@ -2,7 +2,6 @@ import { MealResult } from '@/types/api.types';
 import { ReactElement } from 'react';
 import { useHasImage } from '@/hooks/use-has-image';
 import { Dimensions, ImageBackground, StyleSheet, Text, View } from 'react-native';
-import { constantStyles } from '@/constants/styles';
 import { Link } from 'expo-router';
 import { honeyYellow } from '@/constants/colors';
 import { noPhotoImage } from '@/assets/assets';
@@ -51,11 +50,7 @@ export function SearchMealResult({ meal, ingredientQuery }: SearchMealResultProp
             }
         }} style={{ marginVertical: 10 }}>
             <View style={styles['result-container']}>
-                <ImageBackground style={styles['result-image']} {...imageProps}>
-                    {/*<Link style={styles['img-link']} href={`/result/${meal.id}?sourceUrl=${ingredientQuery}`} target="_blank">*/}
-                    {/*    {isLoading ? <Loader /> : <img src={imgSrc} alt={`Zdjęcie posiłku o nazwie ${meal.title}`} />}*/}
-                    {/*</Link>*/}
-                </ImageBackground>
+                <ImageBackground style={styles['result-image']} {...imageProps} />
                 <View style={styles['result-label']}>
                     <View style={styles['result-description']}>
                         <Text style={styles['result-title']}>{meal.title}</Text>
@@ -64,9 +59,6 @@ export function SearchMealResult({ meal, ingredientQuery }: SearchMealResultProp
                             {renderMissing(meal.missingCount)}
                         </View>
                     </View>
-                    {/*<View style={styles['result-button']}>*/}
-                    {/*    <Button label={'Zobacz'} width={totalWidth * 0.618} />*/}
-                    {/*</View>*/}
                 </View>
             </View>
         </Link>
@@ -101,9 +93,6 @@ const styles = StyleSheet.create({
         textAlign: 'center'
     },
     'result-text': {},
-    'result-button': {
-        ...constantStyles.flexCenter
-    },
     perfectMatchedText: { color: 'green', fontWeight: 'bold', paddingTop: 10 },
     poorMatchedText: { color: '#cc0000', fontWeight: 'bold', paddingTop: 10 }
 });
