@@ -3,6 +3,7 @@ import fridgeImage from './images/landing/fridge_1920.jpg';
 import mealsImage from './images/landing/meals_1920.jpg';
 import integrateImage from './images/landing/integrate_1920.jpg';
 import yummyLogo from './images/yummy.png';
+import noPhotoImage from './images/no-image.png';
 
 import categoriesJson from './data/categories.json';
 import breadsJson from './data/ingredients/breads.json';
@@ -37,6 +38,7 @@ export {
     mealsImage,
     integrateImage,
     yummyLogo,
+    noPhotoImage,
 
     categoriesJson
 };

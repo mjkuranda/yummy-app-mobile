@@ -16,6 +16,24 @@ export function MealResultBox() {
             type: 'main course',
             provider: 'yummy',
             ingredients: []
+        },
+        {
+            id: '2',
+            missingCount: 1,
+            relevance: 0.75,
+            title: 'Test',
+            type: 'main course',
+            provider: 'yummy',
+            ingredients: []
+        },
+        {
+            id: '3',
+            missingCount: 1,
+            relevance: 0.75,
+            title: 'Test',
+            type: 'main course',
+            provider: 'yummy',
+            ingredients: []
         }
     ];
     // const isLoading = false;
@@ -46,7 +64,7 @@ const styles = StyleSheet.create({
     'result-box': {
         width: Dimensions.get('window').width - 60,
         marginLeft: 30,
-        paddingTop: 20
+        marginBottom: 30
     },
     'result-info': {
         width: Dimensions.get('window').width,

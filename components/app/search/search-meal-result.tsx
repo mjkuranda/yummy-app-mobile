@@ -1,10 +1,11 @@
 import { MealResult } from '@/types/api.types';
 import { ReactElement } from 'react';
 import { useHasImage } from '@/hooks/use-has-image';
-import { Dimensions, StyleSheet, Text, View } from 'react-native';
+import { Dimensions, ImageBackground, StyleSheet, Text, View } from 'react-native';
 import { constantStyles } from '@/constants/styles';
 import { Link } from 'expo-router';
 import { honeyYellow } from '@/constants/colors';
+import { noPhotoImage } from '@/assets/assets';
 
 interface SearchMealResultProps {
     meal: MealResult;
@@ -15,6 +16,11 @@ export function SearchMealResult({ meal, ingredientQuery }: SearchMealResultProp
     const { hasImage, isLoading } = useHasImage(meal.imgUrl);
     const imgSrc = hasImage ? meal.imgUrl : '/no-image.png';
     // const encodedUri = encodeURI(`/search?${ingredientQuery}`);
+
+    const imageProps = {
+        ...(hasImage && { src: imgSrc }),
+        ...(!hasImage && { source: noPhotoImage })
+    };
 
     const renderMissing = (missingCount: number): ReactElement => {
         if (missingCount === 0) {
@@ -43,13 +49,13 @@ export function SearchMealResult({ meal, ingredientQuery }: SearchMealResultProp
                 id: meal.id,
                 sourceUrl: ingredientQuery
             }
-        }}>
+        }} style={{ marginVertical: 10 }}>
             <View style={styles['result-container']}>
-                <View style={styles['result-image']}>
+                <ImageBackground style={styles['result-image']} {...imageProps}>
                     {/*<Link style={styles['img-link']} href={`/result/${meal.id}?sourceUrl=${ingredientQuery}`} target="_blank">*/}
                     {/*    {isLoading ? <Loader /> : <img src={imgSrc} alt={`Zdjęcie posiłku o nazwie ${meal.title}`} />}*/}
                     {/*</Link>*/}
-                </View>
+                </ImageBackground>
                 <View style={styles['result-label']}>
                     <View style={styles['result-description']}>
                         <Text style={styles['result-title']}>{meal.title}</Text>
