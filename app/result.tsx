@@ -4,6 +4,9 @@ import { DetailedMealWithTranslations } from '@/types/api.types';
 import { Header } from '@/components/common/header';
 import { Footer } from '@/components/common/footer';
 import { ScrollView, StyleSheet, View } from 'react-native';
+import { Loader } from '@/components/common/loader';
+import { MealContainer } from '@/components/app/result/meal-container';
+import { honeyYellow } from '@/constants/colors';
 
 export default function ResultById() {
     const { id, sourceUrl } = useLocalSearchParams();
@@ -55,10 +58,10 @@ export default function ResultById() {
                 {/*    /!*</Link>*!/*/}
                 {/*</View>*/}
                 <View style={styles['result-container']}>
-                    {/*{isLoading || isError*/}
-                    {/*    ? <Loader isAbsolute={true} />*/}
-                    {/*    : <MealContainer complexMealObject={meal as DetailedMealWithTranslations} />*/}
-                    {/*}*/}
+                    {isLoading || isError
+                        ? <Loader />
+                        : <MealContainer complexMealObject={meal as DetailedMealWithTranslations} />
+                    }
                     {!isLoading && !meal && <div>Posiłek nie został znaleziony.</div>}
                     {isError && <div>Wystąpił błąd.</div>}
                 </View>
@@ -73,7 +76,9 @@ function isApiError(meal: DetailedMealWithTranslations | undefined): boolean {
 }
 
 const styles = StyleSheet.create({
-    'result-page': {},
+    'result-page': {
+        backgroundColor: honeyYellow
+    },
     // 'result-nav': {},
     'result-container': {}
 });
