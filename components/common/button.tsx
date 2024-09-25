@@ -5,27 +5,31 @@ import { Href, useRouter } from 'expo-router';
 
 interface ButtonProps {
     label: string;
-    link: Href<string | Object>;
     disabled?: boolean;
     disabledInfo?: string;
+    link?: Href<string | Object>;
+    width?: DimensionValue;
+    onClick?: () => void;
 }
 
-export function Button({ label, link, disabled, disabledInfo }: ButtonProps) {
+export function Button({ label, link, disabled, disabledInfo, width, onClick }: ButtonProps) {
     const router = useRouter();
 
-    const styles = buttonStyles(225, 10);
+    const styles = buttonStyles(width ?? 225, 10);
     const onPressDisabled = () => {
         if (disabledInfo) {
             Alert.alert(disabledInfo);
         }
     };
     const onPress = () => {
-        router.push(link);
+        if (link) {
+            router.push(link);
+        }
     };
 
     return (
         <View style={styles.buttonContainer}>
-            <TouchableOpacity style={disabled ? styles.disabledButton : styles.button} onPress={disabled ? onPressDisabled : onPress}>
+            <TouchableOpacity style={disabled ? styles.disabledButton : styles.button} onPress={disabled ? onPressDisabled : onClick ?? onPress}>
                 <Text style={styles.buttonText}>{label}</Text>
             </TouchableOpacity>
         </View>
