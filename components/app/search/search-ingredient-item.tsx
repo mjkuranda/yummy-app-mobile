@@ -1,7 +1,8 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { IngredientCategoryLabels } from '@/types/ingredient-category';
 import { cooper } from '@/constants/colors';
+import { useSearchContext } from '@/contexts/search-context';
 
 interface SearchIngredientItemProps {
     ingredient: IngredientCategoryLabels;
@@ -10,6 +11,15 @@ interface SearchIngredientItemProps {
 
 export function SearchIngredientItem({ ingredient, defaultChecked }: SearchIngredientItemProps) {
     const [selected, setSelected] = useState<boolean>(Boolean(defaultChecked));
+    const { onAddIngredient, onRemoveIngredient } = useSearchContext();
+
+    useEffect(() => {
+        if (selected) {
+            onAddIngredient(ingredient.en);
+        } else {
+            onRemoveIngredient(ingredient.en);
+        }
+    }, [selected]);
 
     const onPress = () => setSelected(!selected);
 
