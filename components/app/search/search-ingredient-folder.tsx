@@ -1,19 +1,19 @@
 import { IngredientCategoryType } from '@/types/ingredient-category';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import { SearchIngredientFolderItem } from '@/components/app/search/search-ingredient-folder-item';
 
 interface SearchIngredientFolderProps {
     category: IngredientCategoryType;
+    folded: boolean;
     onChange: () => void;
 }
 
-export function SearchIngredientFolder({ category, onChange }: SearchIngredientFolderProps) {
+export function SearchIngredientFolder({ category, folded, onChange }: SearchIngredientFolderProps) {
     const ingredientId = `${category}-folding`;
 
     return (
         <View style={styles['search-ingredient-category__ingredient']} key={ingredientId}>
-            {/*<input type="checkbox" name={ingredientId} id={ingredientId} className="d-none" onChange={onChange} />*/}
-            {/*<label htmlFor={ingredientId}>Fold/Unfold</label>*/}
-            <Text>ingredientId</Text>
+            <SearchIngredientFolderItem category={category} folded={folded} onChange={onChange} />
         </View>
     );
 }

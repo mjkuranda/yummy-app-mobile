@@ -1,5 +1,7 @@
 import { IngredientCategoryLabels, IngredientCategoryType } from '@/types/ingredient-category';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet } from 'react-native';
+import React from 'react';
+import { SearchIngredientItem } from '@/components/app/search/search-ingredient-item';
 
 interface SearchIngredientItemListProps {
     category: IngredientCategoryType;
@@ -9,16 +11,9 @@ interface SearchIngredientItemListProps {
 
 export function SearchIngredientItemList({ category, ingredients, queryIngredients }: SearchIngredientItemListProps) {
     return ingredients.map(ingredient => {
-        const ingredientId = `ingredient:${ingredient.en}:category:${category}`;
         const defaultChecked = queryIngredients.includes(ingredient.en);
 
-        return (
-            <View style={styles['search-ingredient-category__ingredient']} key={`${category}-${ingredient.en}`} data-filter="ingredient">
-                {/*<input type="checkbox" name={ingredientId} id={ingredientId} className="d-none" defaultChecked={defaultChecked} />*/}
-                {/*<label htmlFor={ingredientId}>{ingredient.pl}</label>*/}
-                <Text>{ingredientId} {defaultChecked}</Text>
-            </View>
-        );
+        return <SearchIngredientItem ingredient={ingredient} key={`${category}-${ingredient.en}`} defaultChecked={defaultChecked} />;
     });
 }
 

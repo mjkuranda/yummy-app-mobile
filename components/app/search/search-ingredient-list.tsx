@@ -21,7 +21,7 @@ export function SearchIngredientList({ category, data }: SearchIngredientListPro
     return (
         <ScrollView style={styles.searchIngredientCategory__list}>
             <SearchIngredientItemList category={category} ingredients={ingredients} queryIngredients={queryIngredients} />
-            {labels.length > 10 && <SearchIngredientFolder category={category} onChange={onChange} />}
+            {labels.length > 10 && <SearchIngredientFolder category={category} folded={folded} onChange={onChange} />}
         </ScrollView>
     );
 }
