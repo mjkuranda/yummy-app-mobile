@@ -8,13 +8,14 @@ interface ButtonProps {
     disabled?: boolean;
     disabledInfo?: string;
     link?: Href<string | Object>;
+    width?: DimensionValue;
     onClick?: () => void;
 }
 
-export function Button({ label, link, disabled, disabledInfo, onClick }: ButtonProps) {
+export function Button({ label, link, disabled, disabledInfo, width, onClick }: ButtonProps) {
     const router = useRouter();
 
-    const styles = buttonStyles(225, 10);
+    const styles = buttonStyles(width ?? 225, 10);
     const onPressDisabled = () => {
         if (disabledInfo) {
             Alert.alert(disabledInfo);

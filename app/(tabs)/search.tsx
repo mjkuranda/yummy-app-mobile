@@ -5,6 +5,7 @@ import { SearchForm } from '@/components/app/search/search-form';
 import { SearchIngredientCategory } from '@/components/app/search/search-ingredient-category';
 import { orangeYellowCrayola } from '@/constants/colors';
 import { SearchProvider } from '@/contexts/search.context';
+import { MealResultBox } from '@/components/app/search/meal-result-box';
 
 export default function SearchScreen() {
     return (
@@ -26,7 +27,7 @@ export default function SearchScreen() {
                 </SearchForm>
             </SearchProvider>
             <View style={styles.mealResultPart}>
-                {/*<MealResultBox />*/}
+                <MealResultBox />
             </View>
             <Footer />
         </ScrollView>
