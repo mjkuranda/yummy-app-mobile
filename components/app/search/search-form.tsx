@@ -5,6 +5,7 @@ import { constantStyles } from '@/constants/styles';
 import { useRouter } from 'expo-router';
 import { encodeIngredients } from '@/helpers/query.helper';
 import { useSearchContext } from '@/contexts/search.context';
+import { Loader } from '@/components/common/loader';
 
 interface SearchFormProps {
     children: ReactNode;
@@ -40,6 +41,7 @@ export function SearchForm({ children }: SearchFormProps) {
                 {children}
             </View>
             <View style={styles.searchButtonContainer}>
+                <Loader />
                 <Button label="Szukaj" onClick={onSubmit} disabled={!isSearchDisabled} disabledInfo="Zaznacz składniki, aby wyszukać posiłki." />
             </View>
         </View>
