@@ -21,7 +21,7 @@ export function MealRecipe({ recipe }: MealRecipeProps) {
         <View>
             {recipe && recipe.map(section => {
                 return (
-                    <View style={styles['instruction-section']}>
+                    <View style={styles['instruction-section']} key={section.name}>
                         <Heading level={5}>Przepis{section.name ? `na ${section.name}` : ''}:</Heading>
                         <View>
                             {section.steps.map((step, idx) => {
@@ -29,7 +29,7 @@ export function MealRecipe({ recipe }: MealRecipeProps) {
                                 return (
                                     <View style={styles.stepContainer} key={`${section.name}-${idx}`}>
                                         <Text style={{ fontWeight: 'bold' }}>{idx + 1}.</Text>
-                                        <Text style={{ marginLeft: 4 }}>{step}</Text>
+                                        <Text style={{ marginLeft: 4, textAlign: 'justify' }}>{step}</Text>
                                     </View>
                                 );
                             })}
