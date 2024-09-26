@@ -5,7 +5,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.7.0] - 2024-09-26
 ### Added
-- [Marek Kurańda](https://github.com/mjkuranda): API integration with `/search` page.
+- [Marek Kurańda](https://github.com/mjkuranda): API integration with `/search` and `/result` pages.
 
 ## [1.6.0] - 2024-09-26
 ### Added
