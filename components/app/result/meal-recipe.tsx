@@ -18,7 +18,7 @@ export function MealRecipe({ recipe }: MealRecipeProps) {
     }
 
     return (
-        <div>
+        <View>
             {recipe && recipe.map(section => {
                 return (
                     <View style={styles['instruction-section']}>
@@ -34,7 +34,7 @@ export function MealRecipe({ recipe }: MealRecipeProps) {
                     </View>
                 );
             })}
-        </div>
+        </View>
     );
 }
 

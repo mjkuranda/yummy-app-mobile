@@ -11,7 +11,6 @@ import { honeyYellow } from '@/constants/colors';
 export default function ResultById() {
     const { id, sourceUrl } = useLocalSearchParams();
     const router = useRouter();
-    // const searchParams = useSearchParams();
     // const { data: meal, isLoading, isError, error } = useGetMealById(id as string);
     const meal: DetailedMealWithTranslations = {
         meal: {
@@ -59,11 +58,6 @@ export default function ResultById() {
         <ScrollView>
             <Header />
             <View style={styles['result-page']}>
-                {/*<View style={styles['result-nav']}>*/}
-                {/*    /!*<Link href={searchParams.get('sourceUrl') ?? '/search'}>*!/*/}
-                {/*    /!*    <ArrowCircleLeftIcon />Wróć do wyszukiwania*!/*/}
-                {/*    /!*</Link>*!/*/}
-                {/*</View>*/}
                 <View style={styles['result-container']}>
                     {isLoading || isError
                         ? <Loader />
@@ -86,6 +80,5 @@ const styles = StyleSheet.create({
     'result-page': {
         backgroundColor: honeyYellow
     },
-    // 'result-nav': {},
     'result-container': {}
 });
