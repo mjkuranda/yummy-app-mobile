@@ -37,7 +37,7 @@ export function SearchMealResult({ meal, ingredientQuery }: SearchMealResultProp
     };
 
     const renderRelevance = (relevance: number): ReactElement => {
-        return <Text>Zgodność z wyszukiwaniem: <Text style={{ fontWeight: 'bold' }}>{Math.ceil(relevance * 100)}%</Text></Text>;
+        return <Text style={{ textAlign: 'center' }}>Zgodność z wyszukiwaniem: <Text style={{ fontWeight: 'bold' }}>{Math.ceil(relevance * 100)}%</Text></Text>;
     };
 
     return (
@@ -52,7 +52,9 @@ export function SearchMealResult({ meal, ingredientQuery }: SearchMealResultProp
                 {isLoading ? <Loader /> : <Image style={styles['result-image']} {...imageProps} />}
                 <View style={styles['result-label']}>
                     <View style={styles['result-description']}>
-                        <Text style={styles['result-title']}>{meal.title}</Text>
+                        <Text style={styles['result-title']} numberOfLines={3}>
+                            {meal.title}
+                        </Text>
                         <View style={styles['result-text']}>
                             {renderRelevance(meal.relevance)}
                             {renderMissing(meal.missingCount)}
@@ -92,6 +94,6 @@ const styles = StyleSheet.create({
         textAlign: 'center'
     },
     'result-text': {},
-    perfectMatchedText: { color: 'green', fontWeight: 'bold', paddingTop: 10 },
-    poorMatchedText: { color: '#cc0000', fontWeight: 'bold', paddingTop: 10 }
+    perfectMatchedText: { color: 'green', fontWeight: 'bold', paddingTop: 10, textAlign: 'center' },
+    poorMatchedText: { color: '#cc0000', fontWeight: 'bold', paddingTop: 10, textAlign: 'center' }
 });

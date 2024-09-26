@@ -1,5 +1,5 @@
 import { DetailedMeal, MealRecipeSection, TranslatedIngredient } from '@/types/api.types';
-import { Dimensions, Image, StyleSheet, Text, View } from 'react-native';
+import { Alert, Dimensions, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { Heading } from '@/components/common/heading';
 import { mealDetailsImages, ukFlagImage } from '@/assets/assets';
 import { MealTypeText } from '@/types/meal.types';
@@ -18,14 +18,18 @@ interface MealGeneralProps {
 export function MealGeneral({ meal, description, ingredients, recipe }: MealGeneralProps) {
     const { timeImage, providerImage, authorImage } = mealDetailsImages;
 
+    const onPressFlag = () => Alert.alert('Posiłek został przetłumaczony, więc może zawierać błędy.');
+
     return (
         <View style={styles['result-details']}>
             <View>
                 <Heading level={1} style={styles.title}>{meal.title}</Heading>
                 {meal.language !== 'pl' &&
-                    <View style={styles.imageContainer}>
-                        <Image source={ukFlagImage} width={48} alt="IconsBox: https://www.flaticon.com/free-icons/uk-flag" style={styles.uk} />
-                    </View>
+                    <TouchableOpacity onPress={onPressFlag}>
+                        <View style={styles.imageContainer}>
+                            <Image source={ukFlagImage} width={48} alt="IconsBox: https://www.flaticon.com/free-icons/uk-flag" style={styles.uk} />
+                        </View>
+                    </TouchableOpacity>
                 }
             </View>
             <View>

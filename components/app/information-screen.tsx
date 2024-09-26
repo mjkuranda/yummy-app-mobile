@@ -1,22 +1,30 @@
-import { Dimensions, ImageBackground, StyleSheet, Text, View } from 'react-native';
+import { Dimensions, ImageBackground, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { Heading } from '@/components/common/heading';
 import { constantStyles } from '@/constants/styles';
 import { blueDeFranceAlpha, honeyYellow } from '@/constants/colors';
+import { Href, useRouter } from 'expo-router';
 
 interface InformationScreenProps {
     title: string;
     description: string;
     image: any; // Image file
     authorInfo: string;
+    link: Href;
 }
 
-export function InformationScreen({ title, description, image, authorInfo }: InformationScreenProps) {
+export function InformationScreen({ title, description, image, authorInfo, link }: InformationScreenProps) {
+    const router = useRouter();
+
+    const onPress = () => router.push(link);
+
     return (
         <ImageBackground style={styles.mainContainer} source={image} data-author-info={authorInfo}>
-            <View style={styles.informationScreenBox}>
-                <Heading level={3} style={styles.informationHeading}>{title}</Heading>
-                <Text style={styles.informationDescription}>{description}</Text>
-            </View>
+            <TouchableOpacity onPress={onPress}>
+                <View style={styles.informationScreenBox}>
+                    <Heading level={3} style={styles.informationHeading}>{title}</Heading>
+                    <Text style={styles.informationDescription}>{description}</Text>
+                </View>
+            </TouchableOpacity>
         </ImageBackground>
     );
 }
