@@ -17,5 +17,7 @@ export function MealDescription({ meal, description }: MealDescriptionProps) {
 }
 
 const styles = StyleSheet.create({
-    'meal-description': {}
+    'meal-description': {
+        marginVertical: 8
+    }
 });

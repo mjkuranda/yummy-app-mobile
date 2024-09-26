@@ -7,6 +7,15 @@ import noPhotoImage from './images/no-image.png';
 import loadingImage from './images/loading.png';
 import ukFlagImage from './images/uk.png';
 
+import authorImage from './images/meal-details/author.png';
+import ingNotImage from './images/meal-details/ing-not.png';
+import ingYesImage from './images/meal-details/ing-yes.png';
+import providerImage from './images/meal-details/provider.png';
+import starEmptyImage from './images/meal-details/star-empty.png';
+import starHalfImage from './images/meal-details/star-half.png';
+import starFullImage from './images/meal-details/star-full.png';
+import timeImage from './images/meal-details/time.png';
+
 import categoriesJson from './data/categories.json';
 import breadsJson from './data/ingredients/breads.json';
 import dairyAndEggsJson from './data/ingredients/dairy-and-eggs.json';
@@ -32,6 +41,17 @@ export const ingredientCategories = {
     'seeds-and-nuts': seedsAndNutsJson,
     'spices': spicesJson,
     'vegetables': vegetablesJson
+};
+
+export const mealDetailsImages = {
+    authorImage,
+    ingNotImage,
+    ingYesImage,
+    providerImage,
+    starEmptyImage,
+    starHalfImage,
+    starFullImage,
+    timeImage
 };
 
 export {

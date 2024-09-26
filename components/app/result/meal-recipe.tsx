@@ -39,5 +39,7 @@ export function MealRecipe({ recipe }: MealRecipeProps) {
 }
 
 const styles = StyleSheet.create({
-    'instruction-section': {}
+    'instruction-section': {
+        marginVertical: 8
+    }
 });

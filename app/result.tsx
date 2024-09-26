@@ -6,7 +6,7 @@ import { Footer } from '@/components/common/footer';
 import { ScrollView, StyleSheet, View } from 'react-native';
 import { Loader } from '@/components/common/loader';
 import { MealContainer } from '@/components/app/result/meal-container';
-import { honeyYellow } from '@/constants/colors';
+import { orangeYellowCrayola } from '@/constants/colors';
 
 export default function ResultById() {
     const { id, sourceUrl } = useLocalSearchParams();
@@ -78,7 +78,7 @@ function isApiError(meal: DetailedMealWithTranslations | undefined): boolean {
 
 const styles = StyleSheet.create({
     'result-page': {
-        backgroundColor: honeyYellow
+        backgroundColor: orangeYellowCrayola
     },
     'result-container': {}
 });

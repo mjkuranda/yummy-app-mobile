@@ -19,8 +19,8 @@ export function MealIngredients({ meal, ingredients }: MealIngredientsProps) {
             <Heading level={5}>Składniki:</Heading>
             <View>
                 {ingredients ?
-                    ingredients.map((ingredient, idx) => <MealIngredientElement text={ingredient.text} imageUrl={ingredient.imageUrl} contains={comparedIngredients && comparedIngredients[idx]} />) :
-                    meal.ingredients.map((ingredient, idx) => <MealIngredientElement text={`${ingredient.amount} ${ingredient.unit} ${ingredient.name}`} imageUrl={ingredient.imageUrl} contains={comparedIngredients && comparedIngredients[idx]} />)
+                    ingredients.map((ingredient, idx) => <MealIngredientElement key={idx} text={ingredient.text} imageUrl={ingredient.imageUrl} contains={comparedIngredients && comparedIngredients[idx]} />) :
+                    meal.ingredients.map((ingredient, idx) => <MealIngredientElement key={idx} text={`${ingredient.amount} ${ingredient.unit} ${ingredient.name}`} imageUrl={ingredient.imageUrl} contains={comparedIngredients && comparedIngredients[idx]} />)
                 }
             </View>
         </View>
@@ -28,5 +28,7 @@ export function MealIngredients({ meal, ingredients }: MealIngredientsProps) {
 }
 
 const styles = StyleSheet.create({
-    'meal-ingredients': {}
+    'meal-ingredients': {
+        marginVertical: 8
+    }
 });
