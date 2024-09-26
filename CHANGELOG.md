@@ -3,6 +3,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.8.0] - 2024-09-26
+### Added
+- [Marek Kurańda](https://github.com/mjkuranda): Icon component.
+
+## [1.7.1] - 2024-09-26
+### Added
+- [Marek Kurańda](https://github.com/mjkuranda): Clickable parts of landing page, UK clickable flag and margins for relevance and missing ingredients for meal results.
+
 ## [1.7.0] - 2024-09-26
 ### Added
 - [Marek Kurańda](https://github.com/mjkuranda): API integration with `/search` and `/result` pages.
