@@ -20,6 +20,7 @@ export function MealCommentAddSection({ refetch }: MealCommentAddSectionProps) {
         }
     }, [isPosting]);
 
+    // FIXME: Remove this
     const onKeyDown = (e: KeyboardEvent): void => {
         // if (e.key === 'Enter') {
         //     onAddComment();
