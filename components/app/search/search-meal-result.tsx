@@ -1,10 +1,11 @@
 import { MealResult } from '@/types/api.types';
 import { ReactElement } from 'react';
 import { useHasImage } from '@/hooks/use-has-image';
-import { Dimensions, ImageBackground, StyleSheet, Text, View } from 'react-native';
+import { Dimensions, Image, StyleSheet, Text, View } from 'react-native';
 import { Link } from 'expo-router';
 import { honeyYellow } from '@/constants/colors';
 import { noPhotoImage } from '@/assets/assets';
+import { Loader } from '@/components/common/loader';
 
 interface SearchMealResultProps {
     meal: MealResult;
@@ -13,11 +14,9 @@ interface SearchMealResultProps {
 
 export function SearchMealResult({ meal, ingredientQuery }: SearchMealResultProps) {
     const { hasImage, isLoading } = useHasImage(meal.imgUrl);
-    const imgSrc = hasImage ? meal.imgUrl : '/no-image.png';
-    // const encodedUri = encodeURI(`/search?${ingredientQuery}`);
 
     const imageProps = {
-        ...(hasImage && { src: imgSrc }),
+        ...(hasImage && { src: meal.imgUrl }),
         ...(!hasImage && { source: noPhotoImage })
     };
 
@@ -38,7 +37,7 @@ export function SearchMealResult({ meal, ingredientQuery }: SearchMealResultProp
     };
 
     const renderRelevance = (relevance: number): ReactElement => {
-        return <Text>Zgodność z Twoim wyszukiwaniem: <Text style={{ fontWeight: 'bold' }}>{Math.ceil(relevance * 100)}%</Text></Text>;
+        return <Text>Zgodność z wyszukiwaniem: <Text style={{ fontWeight: 'bold' }}>{Math.ceil(relevance * 100)}%</Text></Text>;
     };
 
     return (
@@ -50,7 +49,7 @@ export function SearchMealResult({ meal, ingredientQuery }: SearchMealResultProp
             }
         }} style={{ marginVertical: 10 }}>
             <View style={styles['result-container']}>
-                <ImageBackground style={styles['result-image']} {...imageProps} />
+                {isLoading ? <Loader /> : <Image style={styles['result-image']} {...imageProps} />}
                 <View style={styles['result-label']}>
                     <View style={styles['result-description']}>
                         <Text style={styles['result-title']}>{meal.title}</Text>

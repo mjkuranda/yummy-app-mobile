@@ -1,61 +1,33 @@
 import { useSearchFilters } from '@/hooks/use-search-filters';
-import { Dimensions, StyleSheet, View } from 'react-native';
+import { Dimensions, StyleSheet, Text, View } from 'react-native';
 import { SearchMealResult } from '@/components/app/search/search-meal-result';
-import { MealResult } from '@/types/api.types';
+import { useEffect } from 'react';
+import { useGetMeals } from '@/api/endpoints';
+import { Loader } from '@/components/common/loader';
 
 export function MealResultBox() {
-    // const boxRef = useRef(null);
     const { originalQuery, ings } = useSearchFilters();
-    // const { data: meals, isLoading } = useGetMeals(ings);
-    const meals: MealResult[] = [
-        {
-            id: '1',
-            missingCount: 1,
-            relevance: 0.75,
-            title: 'Test',
-            type: 'main course',
-            provider: 'yummy',
-            ingredients: []
-        },
-        {
-            id: '2',
-            missingCount: 1,
-            relevance: 0.75,
-            title: 'Test',
-            type: 'main course',
-            provider: 'yummy',
-            ingredients: []
-        },
-        {
-            id: '3',
-            missingCount: 1,
-            relevance: 0.75,
-            title: 'Test',
-            type: 'main course',
-            provider: 'yummy',
-            ingredients: []
-        }
-    ];
-    // const isLoading = false;
+    const { meals, isLoading, refetch } = useGetMeals(ings);
 
-    // useEffect(() => {
-    //     if (!isLoading && ings.length > 0) {
-    //         boxRef?.current?.scrollIntoView();
-    //     }
-    // }, [meals]);
+    useEffect(() => {
+        refetch();
+    }, [ings.join(',')]);
 
-    // if (!meals && isLoading) {
-    //     return <Loader />;
-    // }
+    if (!meals.length && isLoading) {
+        return <Loader />;
+    }
 
     return (
         <View style={styles['result-box']}>
-            {ings.length > 0 && (meals && meals?.length > 0
-                ? meals.map(meal => {
-                    return <SearchMealResult meal={meal} key={meal.id} ingredientQuery={originalQuery} />;
-                })
-                : <View style={styles['result-info']}>Found 0 results.</View>
-            )}
+            {isLoading
+                ? <Loader />
+                : ings.length > 0 && (meals && meals?.length > 0
+                    ? meals.map(meal => {
+                        return <SearchMealResult meal={meal} key={meal.id} ingredientQuery={originalQuery} />;
+                    })
+                    : <Text style={styles['result-info']}>Found 0 results.</Text>
+                )
+            }
         </View>
     );
 }
