@@ -7,6 +7,7 @@ import { MealDescription } from '@/components/app/result/meal-description';
 import { MealIngredients } from '@/components/app/result/meal-ingredients';
 import { MealRecipe } from '@/components/app/result/meal-recipe';
 import { MealRating } from '@/components/app/result/meal-rating';
+import { Icon } from '@/components/common/icon';
 
 interface MealGeneralProps {
     meal: DetailedMeal;
@@ -34,9 +35,9 @@ export function MealGeneral({ meal, description, ingredients, recipe }: MealGene
             </View>
             <View>
                 <MealRating />
-                <Text>Czas wykonania: <Image source={timeImage} style={styles.icon} />{meal.readyInMinutes} minut</Text>
-                <Text>Typ posiłku: <Image source={providerImage} style={styles.icon} />{MealTypeText[meal.type].pl}</Text>
-                <Text>Autor: <Image source={authorImage} style={styles.icon} />{meal.sourceOrAuthor} {meal.provider === 'spoonacular' ? '(poprzez Spoonacular)' : ''}</Text>
+                <Text>Czas wykonania: <Icon type="time" />{meal.readyInMinutes} minut</Text>
+                <Text>Typ posiłku: <Icon type="meal-type" />{MealTypeText[meal.type].pl}</Text>
+                <Text>Autor: <Icon type="author" />{meal.sourceOrAuthor} {meal.provider === 'spoonacular' ? '(poprzez Spoonacular)' : ''}</Text>
             </View>
             <View style={{ marginTop: 8 }}>
                 <MealDescription description={description} meal={meal} />
@@ -60,9 +61,5 @@ const styles = StyleSheet.create({
     },
     uk: {
         marginLeft: 16
-    },
-    icon: {
-        width: 16,
-        height: 16
     }
 });

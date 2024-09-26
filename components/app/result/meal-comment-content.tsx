@@ -1,15 +1,13 @@
 import { MealComment } from '@/types/meal.types';
 import { HOUR, MINUTE, SECOND } from '@/constants/numbers';
-import { Image, StyleSheet, Text, View } from 'react-native';
-import { mealDetailsImages } from '@/assets/assets';
+import { StyleSheet, Text, View } from 'react-native';
+import { Icon } from '@/components/common/icon';
 
 interface MealCommentContentProps {
     data: MealComment[];
 }
 
 export function MealCommentContent({ data }: MealCommentContentProps) {
-    const { authorImage } = mealDetailsImages;
-
     const getPostedText = (postedComment: number): string => {
         const diff = Date.now() - postedComment;
 
@@ -39,7 +37,7 @@ export function MealCommentContent({ data }: MealCommentContentProps) {
                     <View key={comment._id} style={styles['meal-comment-item']}>
                         <View style={styles['meal-comment-item__header']}>
                             <View>
-                                <Image source={authorImage} style={styles.icon} />
+                                <Icon type="author" />
                                 <Text>{comment.user}</Text>
                             </View>
                             <Text style={styles['meal-comment-item__posted']}>{getPostedText(comment.posted)}</Text>
@@ -55,9 +53,5 @@ export function MealCommentContent({ data }: MealCommentContentProps) {
 const styles = StyleSheet.create({
     'meal-comment-item': {},
     'meal-comment-item__header': {},
-    'meal-comment-item__posted': {},
-    icon: {
-        width: 16,
-        height: 16
-    }
+    'meal-comment-item__posted': {}
 });

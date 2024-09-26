@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react';
-import { mealDetailsImages } from '@/assets/assets';
-import { Image, StyleSheet, View } from 'react-native';
-
-const { starFullImage, starHalfImage, starEmptyImage } = mealDetailsImages;
+import { StyleSheet, View } from 'react-native';
+import { Icon } from '@/components/common/icon';
 
 interface MealRatingStarsProps {
     rating: number;
@@ -67,21 +65,17 @@ export function MealRatingStars({ rating }: MealRatingStarsProps) {
 const styles = StyleSheet.create({
     'meal-rating-stars': {
         flexDirection: 'row'
-    },
-    icon: {
-        width: 32,
-        height: 32
     }
 });
 
 function StarIcon() {
-    return <Image source={starFullImage} style={styles.icon} />;
+    return <Icon type="star-full" />;
 }
 
 function StarHalfIcon() {
-    return <Image source={starHalfImage} style={styles.icon} />;
+    return <Icon type="star-half" />;
 }
 
 function StarBorderIcon() {
-    return <Image source={starEmptyImage} style={styles.icon} />;
+    return <Icon type="star-empty" />;
 }
