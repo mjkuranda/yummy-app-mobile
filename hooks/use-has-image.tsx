@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Image } from 'react-native';
 
 interface useHasImageReturnType {
     hasImage: boolean;
@@ -27,15 +28,8 @@ export function useHasImage(imgUrl?: string): useHasImageReturnType {
 
 function checkImageUrl(urlString: string): Promise<boolean> {
     return new Promise((resolve, reject) => {
-        try {
-            const url = new URL(urlString);
-            const img = new Image();
-
-            img.onload = () => resolve(true);
-            img.onerror = () => reject(false);
-            img.src = url.toString();
-        } catch (error) {
-            reject(false);
-        }
+        Image.prefetch(urlString)
+            .then(() => resolve(true))
+            .catch(() => reject(false));
     });
 }

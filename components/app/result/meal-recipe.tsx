@@ -21,13 +21,16 @@ export function MealRecipe({ recipe }: MealRecipeProps) {
         <View>
             {recipe && recipe.map(section => {
                 return (
-                    <View style={styles['instruction-section']}>
+                    <View style={styles['instruction-section']} key={section.name}>
                         <Heading level={5}>Przepis{section.name ? `na ${section.name}` : ''}:</Heading>
                         <View>
                             {section.steps.map((step, idx) => {
                                 // NOTE: Index is okay, because it's a static list
                                 return (
-                                    <Text key={idx}>{step}</Text>
+                                    <View style={styles.stepContainer} key={`${section.name}-${idx}`}>
+                                        <Text style={{ fontWeight: 'bold' }}>{idx + 1}.</Text>
+                                        <Text style={{ marginLeft: 4, textAlign: 'justify' }}>{step}</Text>
+                                    </View>
                                 );
                             })}
                         </View>
@@ -41,5 +44,8 @@ export function MealRecipe({ recipe }: MealRecipeProps) {
 const styles = StyleSheet.create({
     'instruction-section': {
         marginVertical: 8
+    },
+    stepContainer: {
+        flexDirection: 'row'
     }
 });

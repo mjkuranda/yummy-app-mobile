@@ -5,7 +5,7 @@ export function useComparedIngredients(sourceUrl: string, meal: DetailedMeal): b
         return null;
     }
 
-    const ingredients = sourceUrl.substring(13).split(',');
+    const ingredients = sourceUrl.split('=')[1].split(',');
 
     return meal.ingredients.map(ingredient => ingredients.includes(ingredient.name));
 }

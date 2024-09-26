@@ -23,7 +23,9 @@ export function MealGeneral({ meal, description, ingredients, recipe }: MealGene
             <View>
                 <Heading level={1} style={styles.title}>{meal.title}</Heading>
                 {meal.language !== 'pl' &&
-                    <Image source={ukFlagImage} width={48} alt="IconsBox: https://www.flaticon.com/free-icons/uk-flag" style={styles.uk} />
+                    <View style={styles.imageContainer}>
+                        <Image source={ukFlagImage} width={48} alt="IconsBox: https://www.flaticon.com/free-icons/uk-flag" style={styles.uk} />
+                    </View>
                 }
             </View>
             <View>
@@ -48,6 +50,9 @@ const styles = StyleSheet.create({
     },
     title: {
         textAlign: 'center'
+    },
+    imageContainer: {
+        margin: 'auto'
     },
     uk: {
         marginLeft: 16
