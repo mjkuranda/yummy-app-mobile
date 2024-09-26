@@ -5,6 +5,7 @@ import integrateImage from './images/landing/integrate_1920.jpg';
 import yummyLogo from './images/yummy.png';
 import noPhotoImage from './images/no-image.png';
 import loadingImage from './images/loading.png';
+import ukFlagImage from './images/uk.png';
 
 import categoriesJson from './data/categories.json';
 import breadsJson from './data/ingredients/breads.json';
@@ -41,6 +42,7 @@ export {
     yummyLogo,
     noPhotoImage,
     loadingImage,
+    ukFlagImage,
 
     categoriesJson
 };

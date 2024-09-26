@@ -17,7 +17,14 @@ export default function ResultById() {
         meal: {
             id: '1',
             provider: 'yummy',
-            ingredients: [],
+            ingredients: [
+                {
+                    name: 'honey',
+                    unit: 'jars',
+                    amount: 2,
+                    imageUrl: ''
+                }
+            ],
             language: 'pl',
             sourceOrAuthor: 'marek',
             type: 'main course',
