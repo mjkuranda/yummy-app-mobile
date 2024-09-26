@@ -2,14 +2,14 @@ import { useLocalSearchParams } from 'expo-router';
 import { DetailedMealWithTranslations } from '@/types/api.types';
 import { Header } from '@/components/common/header';
 import { Footer } from '@/components/common/footer';
-import { ScrollView, StyleSheet, View } from 'react-native';
+import { Dimensions, ScrollView, StyleSheet, View } from 'react-native';
 import { Loader } from '@/components/common/loader';
 import { MealContainer } from '@/components/app/result/meal-container';
 import { orangeYellowCrayola } from '@/constants/colors';
 import { useGetMealById } from '@/api/endpoints';
 
 export default function ResultById() {
-    const { id, sourceUrl } = useLocalSearchParams();
+    const { id } = useLocalSearchParams();
     const { meal, isLoading } = useGetMealById(id as string);
 
     return (
@@ -18,7 +18,11 @@ export default function ResultById() {
             <View style={styles['result-page']}>
                 <View style={styles['result-container']}>
                     {isLoading
-                        ? <Loader />
+                        ? (
+                            <View style={styles.loaderContainer}>
+                                <Loader />
+                            </View>
+                        )
                         : <MealContainer complexMealObject={meal as DetailedMealWithTranslations} />
                     }
                     {!isLoading && !meal && <View>Posiłek nie został znaleziony.</View>}
@@ -29,13 +33,12 @@ export default function ResultById() {
     );
 }
 
-function isApiError(meal: DetailedMealWithTranslations | undefined): boolean {
-    return (meal as any)?.statusCode !== undefined;
-}
-
 const styles = StyleSheet.create({
     'result-page': {
         backgroundColor: orangeYellowCrayola
     },
-    'result-container': {}
+    'result-container': {},
+    loaderContainer: {
+        height: Dimensions.get('window').height - 320
+    }
 });
