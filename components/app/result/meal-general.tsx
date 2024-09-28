@@ -1,7 +1,7 @@
 import { DetailedMeal, MealRecipeSection, TranslatedIngredient } from '@/types/api.types';
 import { Alert, Dimensions, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { Heading } from '@/components/common/heading';
-import { mealDetailsImages, ukFlagImage } from '@/assets/assets';
+import { ukFlagImage } from '@/assets/assets';
 import { MealTypeText } from '@/types/meal.types';
 import { MealDescription } from '@/components/app/result/meal-description';
 import { MealIngredients } from '@/components/app/result/meal-ingredients';
@@ -17,8 +17,6 @@ interface MealGeneralProps {
 }
 
 export function MealGeneral({ meal, description, ingredients, recipe }: MealGeneralProps) {
-    const { timeImage, providerImage, authorImage } = mealDetailsImages;
-
     const onPressFlag = () => Alert.alert('Posiłek został przetłumaczony, więc może zawierać błędy.');
 
     return (
