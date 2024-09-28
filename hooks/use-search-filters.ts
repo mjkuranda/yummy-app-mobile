@@ -7,7 +7,8 @@ export function useSearchFilters(): SearchFilters {
     const searchParams = useLocalSearchParams<SearchQuery>();
 
     return {
-        originalQuery: `ings=${searchParams.ings}`,
-        ings: decodeIngredients(searchParams.ings)
+        originalQuery: `ings=${searchParams.ings}&type=${searchParams.type}`,
+        ings: decodeIngredients(searchParams.ings),
+        type: searchParams.type
     };
 }

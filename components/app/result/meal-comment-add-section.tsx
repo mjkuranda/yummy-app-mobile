@@ -1,6 +1,6 @@
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useEffect, useState } from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Text } from 'react-native';
 
 interface MealCommentAddSectionProps {
     // refetch: () => Promise<QueryObserverResult<MealComment[], Error>>;
@@ -9,7 +9,7 @@ interface MealCommentAddSectionProps {
 
 export function MealCommentAddSection({ refetch }: MealCommentAddSectionProps) {
     const { id } = useLocalSearchParams<{ id: string }>();
-    const userContext = useUserContext();
+    // const userContext = useUserContext();
     const router = useRouter();
     const [commentValue, setCommentValue] = useState<string>('');
     const [isPosting, setIsPosting] = useState<boolean>(false);
@@ -47,14 +47,15 @@ export function MealCommentAddSection({ refetch }: MealCommentAddSectionProps) {
     };
 
     return (
-        <div className={styles['meal-comment-add-section']}>
-            <div className={styles['meal-comment-add-section__input']}>
-                <InputString label={'Nowy komentarz'} value={commentValue} setValue={setCommentValue} onKeyDown={onKeyDown} />
-                <div className={styles['meal-comment-add-section__send-icon']}>
-                    {isPosting ? <Loader /> : <SendIconButton onClick={onAddComment} disabled={commentValue.length === 0} />}
-                </div>
-            </div>
-        </div>
+        // <div className={styles['meal-comment-add-section']}>
+        //     <div className={styles['meal-comment-add-section__input']}>
+        //         <InputString label={'Nowy komentarz'} value={commentValue} setValue={setCommentValue} onKeyDown={onKeyDown} />
+        //         <div className={styles['meal-comment-add-section__send-icon']}>
+        //             {isPosting ? <Loader /> : <SendIconButton onClick={onAddComment} disabled={commentValue.length === 0} />}
+        //         </div>
+        //     </div>
+        // </div>
+        <Text>X</Text>
     );
 }
 
