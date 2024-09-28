@@ -1,6 +1,6 @@
 import { StyleSheet, View } from 'react-native';
 import { Button } from '@/components/common/button';
-import { ReactNode, useMemo, useState } from 'react';
+import { ReactNode, useMemo } from 'react';
 import { constantStyles } from '@/constants/styles';
 import { useRouter } from 'expo-router';
 import { encodeIngredients } from '@/helpers/query.helper';
@@ -14,7 +14,7 @@ interface SearchFormProps {
 
 export function SearchForm({ children }: SearchFormProps) {
     const router = useRouter();
-    const { ingredients } = useSearchContext();
+    const { ingredients, type, onSelectType, onClearFilters } = useSearchContext();
     const mealTypeOptions = useMemo(() => {
         const object = { ...MealTypeText, 'any': { en: 'any', pl: 'każdy' } };
 
@@ -26,9 +26,6 @@ export function SearchForm({ children }: SearchFormProps) {
             }));
     },
     []);
-    const [selectedMealType, setSelectedMealType] = useState<string>('any');
-
-    const onSelectedMealType = (mealType: string) => setSelectedMealType(mealType);
 
     const onSubmit = async (): Promise<void> => {
         const ingredientList = Array.from(ingredients);
@@ -45,10 +42,10 @@ export function SearchForm({ children }: SearchFormProps) {
         //     }
         // }
 
-        router.push(`/search?ings=${encodeIngredients(ingredientList)}&type=${selectedMealType || 'any'}`);
+        router.push(`/search?ings=${encodeIngredients(ingredientList)}&type=${type || 'any'}`);
     };
 
-    const isSearchDisabled = Array.from(ingredients).length > 0;
+    const isSearchDisabled = Array.from(ingredients).length === 0;
 
     return (
         <View>
@@ -59,12 +56,13 @@ export function SearchForm({ children }: SearchFormProps) {
                 <Dropdown
                     label={'Wybierz typ posiłku:'}
                     options={mealTypeOptions}
-                    selectedValue={selectedMealType}
-                    onSelectValue={onSelectedMealType}
+                    selectedValue={type}
+                    onSelectValue={onSelectType}
                 />
             </View>
             <View style={styles.searchButtonContainer}>
-                <Button label="Szukaj" onClick={onSubmit} disabled={!isSearchDisabled}
+                <Button label={'Wyczyść'} onClick={onClearFilters} disabled={isSearchDisabled} />
+                <Button label="Szukaj" onClick={onSubmit} disabled={isSearchDisabled}
                     disabledInfo="Zaznacz składniki, aby wyszukać posiłki." />
             </View>
         </View>

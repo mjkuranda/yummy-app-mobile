@@ -28,15 +28,15 @@ export function Dropdown({ label, options, selectedValue, onSelectValue }: Dropd
                     return (
                         <View style={styles.dropdownButtonStyle}>
                             <Text style={styles.dropdownButtonTxtStyle}>
-                                {selectedItem ? selectedItem.label : 'Każdy'}
+                                {options.find(option => option.en === selectedValue)?.label || 'Każdy'}
                             </Text>
                             <Icon name={isOpened ? 'chevron-up' : 'chevron-down'} style={styles.dropdownButtonArrowStyle} />
                         </View>
                     );
                 }}
-                renderItem={(item, index, isSelected) => {
+                renderItem={item => {
                     return (
-                        <View style={{ ...styles.dropdownItemStyle, ...((isSelected || selectedValue === item.en) && { backgroundColor: '#fca944' }) }}>
+                        <View style={{ ...styles.dropdownItemStyle, ...((selectedValue === item.en) && { backgroundColor: '#fca944' }) }}>
                             {/*<Icon name="emoticon-outline" style={styles.dropdownItemIconStyle} />*/}
                             <Text style={styles.dropdownItemTxtStyle}>{item.label}</Text>
                         </View>
