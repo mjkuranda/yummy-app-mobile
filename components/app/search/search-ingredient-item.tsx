@@ -10,8 +10,8 @@ interface SearchIngredientItemProps {
 }
 
 export function SearchIngredientItem({ ingredient, defaultChecked }: SearchIngredientItemProps) {
+    const { onAddIngredient, onRemoveIngredient, ingredients } = useSearchContext();
     const [selected, setSelected] = useState<boolean>(Boolean(defaultChecked));
-    const { onAddIngredient, onRemoveIngredient } = useSearchContext();
 
     useEffect(() => {
         if (selected) {
@@ -20,6 +20,12 @@ export function SearchIngredientItem({ ingredient, defaultChecked }: SearchIngre
             onRemoveIngredient(ingredient.en);
         }
     }, [selected]);
+
+    useEffect(() => {
+        if (ingredients.size === 0) {
+            setSelected(false);
+        }
+    }, [ingredients.size]);
 
     const onPress = () => setSelected(!selected);
 

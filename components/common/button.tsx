@@ -67,6 +67,7 @@ function buttonStyles(width: DimensionValue, margin: DimensionValue) {
             paddingVertical: 12,
             paddingHorizontal: 30,
             width,
+            margin,
             opacity: 0.618
         }
     });
