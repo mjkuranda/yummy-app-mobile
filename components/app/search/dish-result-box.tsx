@@ -1,28 +1,28 @@
 import { useSearchFilters } from '@/hooks/use-search-filters';
 import { Dimensions, StyleSheet, Text, View } from 'react-native';
-import { SearchMealResult } from '@/components/app/search/search-meal-result';
+import { SearchDishResult } from '@/components/app/search/search-dish-result';
 import { useEffect, useState } from 'react';
-import { useGetMeals } from '@/api/endpoints';
+import { useGetDishes } from '@/api/endpoints';
 import { Loader } from '@/components/common/loader';
-import { MealResult } from '@/types/api.types';
-import { filterMealByType } from '@/helpers/search.helper';
+import { DishResult } from '@/types/api.types';
+import { filterDishByType } from '@/helpers/search.helper';
 
-export function MealResultBox() {
-    const { originalQuery, ings, type } = useSearchFilters();
-    const { meals, isLoading, refetch } = useGetMeals(ings);
-    const [filteredMeals, setFilteredMeals] = useState<MealResult[]>([]);
+export function DishResultBox() {
+    const { originalQuery, ings, type, dish } = useSearchFilters();
+    const { dishes, isLoading, refetch } = useGetDishes(ings);
+    const [filteredDishes, setFilteredDishes] = useState<DishResult[]>([]);
 
     useEffect(() => {
         refetch();
     }, [ings.join(','), type]);
 
     useEffect(() => {
-        const filtered = filterMealByType(meals ?? [], type);
+        const filtered = filterDishByType(dishes ?? [], type, dish);
 
-        setFilteredMeals(filtered);
-    }, [meals, type]);
+        setFilteredDishes(filtered);
+    }, [dishes, type, dish]);
 
-    if (!meals.length && isLoading) {
+    if (!dishes.length && isLoading) {
         return <Loader />;
     }
 
@@ -30,9 +30,9 @@ export function MealResultBox() {
         <View style={styles['result-box']}>
             {isLoading
                 ? <Loader />
-                : ings.length > 0 && (filteredMeals.length > 0
-                    ? filteredMeals.map(meal => {
-                        return <SearchMealResult meal={meal} key={meal.id} ingredientQuery={originalQuery} />;
+                : ings.length > 0 && (filteredDishes.length > 0
+                    ? filteredDishes.map(dish => {
+                        return <SearchDishResult dish={dish} key={dish.id} ingredientQuery={originalQuery} />;
                     })
                     : <Text style={styles['result-info']}>Nie znaleziono żadnych dopasowań.</Text>
                 )

@@ -1,4 +1,4 @@
-import { MealResult } from '@/types/api.types';
+import { DishResult } from '@/types/api.types';
 import { ReactElement } from 'react';
 import { useHasImage } from '@/hooks/use-has-image';
 import { Dimensions, Image, StyleSheet, Text, View } from 'react-native';
@@ -7,16 +7,16 @@ import { honeyYellow } from '@/constants/colors';
 import { noPhotoImage } from '@/assets/assets';
 import { Loader } from '@/components/common/loader';
 
-interface SearchMealResultProps {
-    meal: MealResult;
+interface SearchDishResultProps {
+    dish: DishResult;
     ingredientQuery: string;
 }
 
-export function SearchMealResult({ meal, ingredientQuery }: SearchMealResultProps) {
-    const { hasImage, isLoading } = useHasImage(meal.imgUrl);
+export function SearchDishResult({ dish, ingredientQuery }: SearchDishResultProps) {
+    const { hasImage, isLoading } = useHasImage(dish.imgUrl);
 
     const imageProps = {
-        ...(hasImage && { src: meal.imgUrl }),
+        ...(hasImage && { src: dish.imgUrl }),
         ...(!hasImage && { source: noPhotoImage })
     };
 
@@ -44,7 +44,7 @@ export function SearchMealResult({ meal, ingredientQuery }: SearchMealResultProp
         <Link href={{
             pathname: '/result',
             params: {
-                id: meal.id,
+                id: dish.id,
                 sourceUrl: ingredientQuery
             }
         }} style={{ marginVertical: 10 }}>
@@ -53,11 +53,11 @@ export function SearchMealResult({ meal, ingredientQuery }: SearchMealResultProp
                 <View style={styles['result-label']}>
                     <View style={styles['result-description']}>
                         <Text style={styles['result-title']} numberOfLines={3}>
-                            {meal.title}
+                            {dish.title}
                         </Text>
                         <View style={styles['result-text']}>
-                            {renderRelevance(meal.relevance)}
-                            {renderMissing(meal.missingCount)}
+                            {renderRelevance(dish.relevance)}
+                            {renderMissing(dish.missingCount)}
                         </View>
                     </View>
                 </View>

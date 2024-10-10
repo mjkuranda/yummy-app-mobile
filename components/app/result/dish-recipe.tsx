@@ -1,13 +1,13 @@
-import { DetailedMeal, MealRecipeSection } from '@/types/api.types';
+import { DetailedDish, DishRecipeSection } from '@/types/api.types';
 import { StyleSheet, Text, View } from 'react-native';
 import { Heading } from '@/components/common/heading';
 
-interface MealRecipeProps {
-    meal: DetailedMeal;
-    recipe?: MealRecipeSection[];
+interface DishRecipeProps {
+    dish: DetailedDish;
+    recipe?: DishRecipeSection[];
 }
 
-export function MealRecipe({ recipe }: MealRecipeProps) {
+export function DishRecipe({ recipe }: DishRecipeProps) {
     if (!recipe || recipe.length === 0) {
         return (
             <View style={styles['instruction-section']}>

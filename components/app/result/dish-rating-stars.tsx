@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Icon } from '@/components/common/icon';
 
-interface MealRatingStarsProps {
+interface DishRatingStarsProps {
     rating: number;
 }
 
@@ -12,7 +12,7 @@ interface StartState {
     rest: number;
 }
 
-export function MealRatingStars({ rating }: MealRatingStarsProps) {
+export function DishRatingStars({ rating }: DishRatingStarsProps) {
     const [starState, setStarState] = useState<StartState>({
         solid: 2,
         half: 1,
@@ -43,7 +43,7 @@ export function MealRatingStars({ rating }: MealRatingStarsProps) {
 
     if (rating >= 4.85) {
         return (
-            <View style={styles['meal-rating-stars']}>
+            <View style={styles['dish-rating-stars']}>
                 <StarIcon />
                 <StarIcon />
                 <StarIcon />
@@ -54,7 +54,7 @@ export function MealRatingStars({ rating }: MealRatingStarsProps) {
     }
 
     return (
-        <View style={styles['meal-rating-stars']}>
+        <View style={styles['dish-rating-stars']}>
             {renderSolid(starState)}
             {renderHalf(starState)}
             {renderRest(starState)}
@@ -63,7 +63,7 @@ export function MealRatingStars({ rating }: MealRatingStarsProps) {
 }
 
 const styles = StyleSheet.create({
-    'meal-rating-stars': {
+    'dish-rating-stars': {
         flexDirection: 'row'
     }
 });

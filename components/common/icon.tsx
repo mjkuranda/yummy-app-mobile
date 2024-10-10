@@ -1,9 +1,9 @@
 import { Image, StyleSheet } from 'react-native';
-import { mealDetailsImages } from '@/assets/assets';
+import { dishDetailsImages } from '@/assets/assets';
 
-const { authorImage, providerImage, timeImage, ingNotImage, ingYesImage, starEmptyImage, starHalfImage, starFullImage } = mealDetailsImages;
+const { authorImage, providerImage, timeImage, ingNotImage, ingYesImage, starEmptyImage, starHalfImage, starFullImage } = dishDetailsImages;
 
-type IconType = 'author' | 'meal-type' | 'time' | 'wrong' | 'tick' | 'star-empty' | 'star-half' | 'star-full';
+type IconType = 'author' | 'dish-type' | 'time' | 'wrong' | 'tick' | 'star-empty' | 'star-half' | 'star-full';
 
 interface IconProps {
     type: IconType;
@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
 function getSource(type: IconType) {
     switch (type) {
     case 'author': return authorImage;
-    case 'meal-type': return providerImage;
+    case 'dish-type': return providerImage;
     case 'time': return timeImage;
     case 'wrong': return ingNotImage;
     case 'tick': return ingYesImage;

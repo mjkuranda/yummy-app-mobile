@@ -1,13 +1,13 @@
 import { Image, StyleSheet, Text, View } from 'react-native';
 import { Icon } from '@/components/common/icon';
 
-interface MealIngredientElementProps {
+interface DishIngredientElementProps {
     text: string;
     imageUrl: string;
     contains: boolean | null;
 }
 
-export function MealIngredientElement({ text, imageUrl, contains }: MealIngredientElementProps) {
+export function DishIngredientElement({ text, imageUrl, contains }: DishIngredientElementProps) {
     return (
         <View style={styles['result-ingredient']} key={text}>
             <Image style={styles['result-ingredient__image']} src={imageUrl} alt={text} />

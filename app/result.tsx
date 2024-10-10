@@ -1,16 +1,16 @@
 import { useLocalSearchParams } from 'expo-router';
-import { DetailedMealWithTranslations } from '@/types/api.types';
+import { DetailedDishWithTranslations } from '@/types/api.types';
 import { Header } from '@/components/common/header';
 import { Footer } from '@/components/common/footer';
 import { Dimensions, ScrollView, StyleSheet, View } from 'react-native';
 import { Loader } from '@/components/common/loader';
-import { MealContainer } from '@/components/app/result/meal-container';
+import { DishContainer } from '@/components/app/result/dish-container';
 import { orangeYellowCrayola } from '@/constants/colors';
-import { useGetMealById } from '@/api/endpoints';
+import { useGetDishById } from '@/api/endpoints';
 
 export default function ResultById() {
     const { id } = useLocalSearchParams();
-    const { meal, isLoading } = useGetMealById(id as string);
+    const { dish, isLoading } = useGetDishById(id as string);
 
     return (
         <ScrollView>
@@ -23,9 +23,9 @@ export default function ResultById() {
                                 <Loader />
                             </View>
                         )
-                        : <MealContainer complexMealObject={meal as DetailedMealWithTranslations} />
+                        : <DishContainer complexDishObject={dish as DetailedDishWithTranslations} />
                     }
-                    {!isLoading && !meal && <View>Posiłek nie został znaleziony.</View>}
+                    {!isLoading && !dish && <View>Posiłek nie został znaleziony.</View>}
                 </View>
             </View>
             <Footer />

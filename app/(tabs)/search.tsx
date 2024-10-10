@@ -5,7 +5,7 @@ import { SearchForm } from '@/components/app/search/search-form';
 import { SearchIngredientCategory } from '@/components/app/search/search-ingredient-category';
 import { orangeYellowCrayola } from '@/constants/colors';
 import { SearchProvider } from '@/contexts/search.context';
-import { MealResultBox } from '@/components/app/search/meal-result-box';
+import { DishResultBox } from '@/components/app/search/dish-result-box';
 
 export default function SearchScreen() {
     return (
@@ -26,8 +26,8 @@ export default function SearchScreen() {
                     <SearchIngredientCategory category="vegetables" />
                 </SearchForm>
             </SearchProvider>
-            <View style={styles.mealResultPart}>
-                <MealResultBox />
+            <View style={styles.dishResultPart}>
+                <DishResultBox />
             </View>
             <Footer />
         </ScrollView>
@@ -38,6 +38,6 @@ const styles = StyleSheet.create({
     searchContainer: {
         backgroundColor: orangeYellowCrayola
     },
-    mealResultPart: {},
+    dishResultPart: {},
     adder: {}
 });

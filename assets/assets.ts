@@ -1,20 +1,20 @@
 import landingImage from './images/landing/soup_1920.jpg';
 import fridgeImage from './images/landing/fridge_1920.jpg';
-import mealsImage from './images/landing/meals_1920.jpg';
+import dishesImage from './images/landing/dishes_1920.jpg';
 import integrateImage from './images/landing/integrate_1920.jpg';
 import yummyLogo from './images/yummy.png';
 import noPhotoImage from './images/no-image.png';
 import loadingImage from './images/loading.png';
 import ukFlagImage from './images/uk.png';
 
-import authorImage from './images/meal-details/author.png';
-import ingNotImage from './images/meal-details/ing-not.png';
-import ingYesImage from './images/meal-details/ing-yes.png';
-import providerImage from './images/meal-details/provider.png';
-import starEmptyImage from './images/meal-details/star-empty.png';
-import starHalfImage from './images/meal-details/star-half.png';
-import starFullImage from './images/meal-details/star-full.png';
-import timeImage from './images/meal-details/time.png';
+import authorImage from '@/assets/images/dish-details/author.png';
+import ingNotImage from '@/assets/images/dish-details/ing-not.png';
+import ingYesImage from '@/assets/images/dish-details/ing-yes.png';
+import providerImage from '@/assets/images/dish-details/provider.png';
+import starEmptyImage from '@/assets/images/dish-details/star-empty.png';
+import starHalfImage from '@/assets/images/dish-details/star-half.png';
+import starFullImage from '@/assets/images/dish-details/star-full.png';
+import timeImage from '@/assets/images/dish-details/time.png';
 
 import categoriesJson from './data/categories.json';
 import breadsJson from './data/ingredients/breads.json';
@@ -43,7 +43,7 @@ export const ingredientCategories = {
     'vegetables': vegetablesJson
 };
 
-export const mealDetailsImages = {
+export const dishDetailsImages = {
     authorImage,
     ingNotImage,
     ingYesImage,
@@ -57,7 +57,7 @@ export const mealDetailsImages = {
 export {
     landingImage,
     fridgeImage,
-    mealsImage,
+    dishesImage,
     integrateImage,
     yummyLogo,
     noPhotoImage,
