@@ -34,7 +34,7 @@ export function DishGeneral({ dish, description, ingredients, recipe }: DishGene
             <View>
                 <DishRating />
                 <Text>Czas wykonania: <Icon type="time" />{dish.readyInMinutes} minut</Text>
-                <Text>Typ posiłku: <Icon type="dish-type" />{DishTypeText[dish.mealType][dish.type].pl}</Text>
+                <Text>Typ dania: <Icon type="dish-type" />{DishTypeText[dish.mealType][dish.type].pl}</Text>
                 <Text>Autor: <Icon type="author" />{dish.sourceOrAuthor} {dish.provider === 'spoonacular' ? '(poprzez Spoonacular)' : ''}</Text>
             </View>
             <View style={{ marginTop: 8 }}>
