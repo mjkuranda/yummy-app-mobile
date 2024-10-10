@@ -17,7 +17,7 @@ interface DishGeneralProps {
 }
 
 export function DishGeneral({ dish, description, ingredients, recipe }: DishGeneralProps) {
-    const onPressFlag = () => Alert.alert('Posiłek został przetłumaczony, więc może zawierać błędy.');
+    const onPressFlag = () => Alert.alert('Danie zostało przetłumaczone, więc może zawierać błędy.');
 
     return (
         <View style={styles['result-details']}>
