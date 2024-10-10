@@ -1,13 +1,14 @@
 import { Dimensions, ImageBackground, StyleSheet, View } from 'react-native';
 import { landingImage } from '@/assets/assets';
 import { WelcomeScreenPanel } from '@/components/app/welcome-screen-panel';
+import { User } from '@/components/app/user';
 
 export function WelcomeScreen() {
     return (
         <ImageBackground source={landingImage}>
             <WelcomeScreenPanel />
             <View style={styles.userContainer}>
-                {/*<User />*/}
+                <User />
             </View>
         </ImageBackground>
     );
@@ -22,7 +23,10 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 0,
         right: 0,
-        marginTop: 4,
-        marginRight: 4
+        marginTop: 32,
+        marginRight: 8,
+        textShadowColor: 'grey',
+        textShadowOffset: { width: 2, height: 2 },
+        textShadowRadius: 2
     }
 });

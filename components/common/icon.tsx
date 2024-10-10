@@ -1,9 +1,9 @@
 import { Image, StyleSheet } from 'react-native';
-import { dishDetailsImages } from '@/assets/assets';
+import { dishDetailsImages, userImage } from '@/assets/assets';
 
 const { authorImage, providerImage, timeImage, ingNotImage, ingYesImage, starEmptyImage, starHalfImage, starFullImage } = dishDetailsImages;
 
-type IconType = 'author' | 'dish-type' | 'time' | 'wrong' | 'tick' | 'star-empty' | 'star-half' | 'star-full';
+type IconType = 'author' | 'dish-type' | 'time' | 'wrong' | 'tick' | 'star-empty' | 'star-half' | 'star-full' | 'user';
 
 interface IconProps {
     type: IconType;
@@ -32,6 +32,7 @@ function getSource(type: IconType) {
     case 'star-empty': return starEmptyImage;
     case 'star-half': return starHalfImage;
     case 'star-full': return starFullImage;
+    case 'user': return userImage;
     default: return null;
     }
 }
