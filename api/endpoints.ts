@@ -1,9 +1,9 @@
-import { DetailedMealWithTranslations, MealResult } from '@/types/api.types';
+import { DetailedDishWithTranslations, DishResult } from '@/types/api.types';
 import { useEffect, useState } from 'react';
-import { getMeal, getMeals } from '@/api/api';
+import { getDish, getDishes } from '@/api/api';
 
-export function useGetMeals(ings: string[]): { meals: MealResult[], isLoading: boolean, refetch: () => void } {
-    const [meals, setMeals] = useState<MealResult[]>([]);
+export function useGetDishes(ings: string[]): { dishes: DishResult[], isLoading: boolean, refetch: () => void } {
+    const [dishes, setDishes] = useState<DishResult[]>([]);
     const [isLoading, setIsLoading] = useState<boolean>(true);
     const [refetchFlag, setRefetchFlag] = useState<boolean>(false);
 
@@ -13,23 +13,23 @@ export function useGetMeals(ings: string[]): { meals: MealResult[], isLoading: b
     };
 
     useEffect(() => {
-        getMeals(ings)
-            .then(data => setMeals(data))
+        getDishes(ings)
+            .then(data => setDishes(data))
             .finally(() => setIsLoading(false));
     }, [refetchFlag]);
 
-    return { meals, isLoading, refetch };
+    return { dishes, isLoading, refetch };
 }
 
-export function useGetMealById(id: string): { meal?: DetailedMealWithTranslations, isLoading: boolean } {
-    const [meal, setMeal] = useState<DetailedMealWithTranslations>();
+export function useGetDishById(id: string): { dish?: DetailedDishWithTranslations, isLoading: boolean } {
+    const [dish, setDish] = useState<DetailedDishWithTranslations>();
     const [isLoading, setIsLoading] = useState<boolean>(true);
 
     useEffect(() => {
-        getMeal(id)
-            .then(data => setMeal(data))
+        getDish(id)
+            .then(data => setDish(data))
             .finally(() => setIsLoading(false));
     }, []);
 
-    return { meal, isLoading };
+    return { dish, isLoading };
 }

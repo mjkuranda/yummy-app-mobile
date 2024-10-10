@@ -2,7 +2,7 @@ import { ScrollView, View } from 'react-native';
 import { WelcomeScreen } from '@/components/app/welcome-screen';
 import { InformationScreen } from '@/components/app/information-screen';
 import { Footer } from '@/components/common/footer';
-import { fridgeImage, integrateImage, mealsImage } from '@/assets/assets';
+import { fridgeImage, integrateImage, dishesImage } from '@/assets/assets';
 
 export default function HomeScreen() {
     return (
@@ -19,7 +19,7 @@ export default function HomeScreen() {
                 <InformationScreen
                     title="Posiłki"
                     description="Zawiera ponad 100 000 posiłków, integrując posiłki z innych serwisów!"
-                    image={mealsImage}
+                    image={dishesImage}
                     authorInfo={'Image by <a href="https://pixabay.com/users/buffetcrush-4147660/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=2009590">지원 이</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=2009590">Pixabay</a>'}
                     link="/search"
                 />

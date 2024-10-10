@@ -1,19 +1,20 @@
-import { MealType } from '@/types/meal.types';
+import { DishType, MealType } from '@/types/dish.types';
 
-export type MealProvider = 'yummy' | 'spoonacular';
+export type DishProvider = 'yummy' | 'spoonacular';
 
-export interface MealResult {
+export interface DishResult {
     id: string;
     imgUrl?: string;
     ingredients: string[];
     missingCount: number;
-    provider: MealProvider;
+    provider: DishProvider;
     title: string;
     relevance: number;
-    type: MealType;
+    type: DishType;
+    mealType: MealType;
 }
 
-export type DetailedMeal = {
+export type DetailedDish = {
     id: string,
     imgUrl?: string,
     ingredients: Ingredient[],
@@ -22,7 +23,7 @@ export type DetailedMeal = {
     description: string,
     readyInMinutes: number,
     sourceOrAuthor: string,
-    provider: MealProvider,
+    provider: DishProvider,
     properties?: {
         vegetarian?: boolean,
         vegan?: boolean,
@@ -30,8 +31,9 @@ export type DetailedMeal = {
         dairyFree?: boolean,
         veryHealthy?: boolean
     },
-    recipeSections: MealRecipeSection[],
-    type: MealType
+    recipeSections: DishRecipeSection[],
+    type: DishType
+    mealType: MealType,
 };
 
 export interface TranslatedIngredient {
@@ -39,18 +41,18 @@ export interface TranslatedIngredient {
     imageUrl: string;
 }
 
-export type MealRecipeStep = string;
+export type DishRecipeStep = string;
 
-export type MealRecipeSection = {
+export type DishRecipeSection = {
     name?: string,
-    steps: MealRecipeStep[]
+    steps: DishRecipeStep[]
 };
 
-export interface DetailedMealWithTranslations {
-    meal: DetailedMeal;
+export interface DetailedDishWithTranslations {
+    dish: DetailedDish;
     description?: string;
     ingredients?: TranslatedIngredient[];
-    recipe?: MealRecipeSection[];
+    recipe?: DishRecipeSection[];
 }
 
 export interface Ingredient {
@@ -61,14 +63,15 @@ export interface Ingredient {
 }
 export type IngredientWithoutImage = Omit<Ingredient, 'imageUrl'>;
 
-export interface MealProposal {
+export interface DishProposal {
     id: string;
     imgUrl?: string;
     ingredients: string[],
     recommendationPoints: number;
     title: string;
-    provider: MealProvider;
-    type: MealType;
+    provider: DishProvider;
+    type: DishType;
+    mealType: MealType;
 }
 
 export interface ApiError {
@@ -90,7 +93,7 @@ export interface UserPermissions {
     }
 }
 
-export interface MealProposalRequest {
+export interface DishProposalRequest {
     ingredients: string[];
 }
 
@@ -104,34 +107,36 @@ export interface NotActivatedUser {
  */
 export type Language = 'en' | 'en-US' | 'pl';
 
-export interface NewMealDto {
+export interface NewDishDto {
     author: string;
     description: string;
     imageUrl?: string;
     ingredients: IngredientWithoutImage[];
     language: Language;
     posted: number;
-    provider: MealProvider;
+    provider: DishProvider;
     readyInMinutes: number;
-    recipeSections: MealRecipeSection[];
+    recipeSections: DishRecipeSection[];
     title: string;
-    type: MealType;
+    type: DishType;
+    mealType: MealType;
 }
 
-export interface MealDocument {
+export interface DishDocument {
     readonly _id: string;
     readonly author: string;
     readonly description: string;
     readonly imageUrl: string;
     readonly ingredients: string[];
     readonly language: Language;
+    readonly mealType: MealType;
     readonly posted: number;
-    readonly provider: MealProvider;
+    readonly provider: DishProvider;
     readonly title: string;
-    readonly type: MealType;
+    readonly type: DishType;
     readonly softAdded?: boolean;
     readonly softDeleted?: boolean;
-    readonly softEdited?: MealDocument;
+    readonly softEdited?: DishDocument;
     readonly readyInMinutes: number;
-    readonly recipeSections: MealRecipeSection[];
+    readonly recipeSections: DishRecipeSection[];
 }

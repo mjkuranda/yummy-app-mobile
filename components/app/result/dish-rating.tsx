@@ -1,16 +1,16 @@
 import { useLocalSearchParams } from 'expo-router';
 import { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { MealRating as MealRatingType } from '@/types/meal.types';
-import { MealRatingStars } from '@/components/app/result/meal-rating-stars';
+import { DishRating as DishRatingType } from '@/types/dish.types';
+import { DishRatingStars } from '@/components/app/result/dish-rating-stars';
 import { constantStyles } from '@/constants/styles';
 
-export function MealRating() {
+export function DishRating() {
     const { id } = useLocalSearchParams<{ id: string }>();
     // const { isLoggedIn } = useUserContext();
     const isLoggedIn = () => false;
     const [toggleRate, setToggleRate] = useState<boolean>(false);
-    const [rating, setRating] = useState<MealRatingType>({ mealId: id, rating: 0, count: 0 });
+    const [rating, setRating] = useState<DishRatingType>({ dishId: id, rating: 0, count: 0 });
 
     // useEffect(() => {
     //     getMealRating(id)
@@ -43,9 +43,9 @@ export function MealRating() {
     };
 
     return (
-        <View style={styles['meal-rating']}>
-            <View style={styles['meal-rating__rating']}>
-                <MealRatingStars rating={rating.rating} />
+        <View style={styles['dish-rating']}>
+            <View style={styles['dish-rating__rating']}>
+                <DishRatingStars rating={rating.rating} />
                 <Text style={styles['rate-count']}>({renderRatingCountText(rating.count)})</Text>
                 {/*{isLoggedIn() && <TextButton label={'Oceń'} onClick={onToggleRate} />}*/}
             </View>
@@ -55,13 +55,13 @@ export function MealRating() {
 }
 
 const styles = StyleSheet.create({
-    'meal-rating': {
+    'dish-rating': {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
         flexDirection: 'row',
     },
-    'meal-rating__rating': {
+    'dish-rating__rating': {
         ...constantStyles.flexCenter,
         flexDirection: 'column',
         marginBottom: 8

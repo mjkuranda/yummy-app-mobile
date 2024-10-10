@@ -2,12 +2,12 @@ import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { StyleSheet, Text } from 'react-native';
 
-interface MealCommentAddSectionProps {
+interface DishCommentAddSectionProps {
     // refetch: () => Promise<QueryObserverResult<MealComment[], Error>>;
     refetch: () => void;
 }
 
-export function MealCommentAddSection({ refetch }: MealCommentAddSectionProps) {
+export function DishCommentAddSection({ refetch }: DishCommentAddSectionProps) {
     const { id } = useLocalSearchParams<{ id: string }>();
     // const userContext = useUserContext();
     const router = useRouter();

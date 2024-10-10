@@ -1,10 +1,18 @@
-import { MealResult } from '@/types/api.types';
-import { MealType } from '@/types/meal.types';
+import { DishResult } from '@/types/api.types';
+import { DishType, MealType } from '@/types/dish.types';
 
-export function filterMealByType(meals: MealResult[], type: MealType): MealResult[] {
-    if (!type || type === 'any') {
-        return meals;
+export function filterDishByType(dishes: DishResult[], type: MealType, dishType: DishType): DishResult[] {
+    const filtered = dishes.filter(dish => {
+        if (dish.provider !== 'yummy') {
+            return true;
+        }
+
+        return dish.type === type;
+    });
+
+    if (dishType === 'any') {
+        return filtered;
     }
 
-    return meals.filter(meal => meal.type === type);
+    return filtered.filter(dish => dish.type === dishType);
 }

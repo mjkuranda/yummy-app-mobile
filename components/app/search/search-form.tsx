@@ -5,7 +5,7 @@ import { constantStyles } from '@/constants/styles';
 import { useRouter } from 'expo-router';
 import { encodeIngredients } from '@/helpers/query.helper';
 import { useSearchContext } from '@/contexts/search.context';
-import { MealTypeText } from '@/types/meal.types';
+import { DishTypeText } from '@/types/dish.types';
 import { Dropdown } from '@/components/common/dropdown';
 
 interface SearchFormProps {
@@ -15,11 +15,20 @@ interface SearchFormProps {
 export function SearchForm({ children }: SearchFormProps) {
     const router = useRouter();
     const { ingredients, type, onSelectType, onClearFilters } = useSearchContext();
-    const mealTypeOptions = useMemo(() => {
-        const object = { ...MealTypeText, 'any': { en: 'any', pl: 'każdy' } };
-
+    // const mealTypeOptions = useMemo(() => {
+    //     const object = { ...MealTypeText, 'any': { en: 'any', pl: 'każdy' } };
+    //
+    //     return Object
+    //         .entries(object)
+    //         .map(entry => ({
+    //             en: entry[1].en,
+    //             label: entry[1].pl[0].toUpperCase() + entry[1].pl.substring(1)
+    //         }));
+    // },
+    // []);
+    const dishTypeOptions = useMemo(() => {
         return Object
-            .entries(object)
+            .entries(DishTypeText.launch)
             .map(entry => ({
                 en: entry[1].en,
                 label: entry[1].pl[0].toUpperCase() + entry[1].pl.substring(1)
@@ -42,7 +51,7 @@ export function SearchForm({ children }: SearchFormProps) {
         //     }
         // }
 
-        router.push(`/search?ings=${encodeIngredients(ingredientList)}&type=${type || 'any'}`);
+        router.push(`/search?ings=${encodeIngredients(ingredientList)}&dish=${type || 'any'}`);
     };
 
     const isSearchDisabled = Array.from(ingredients).length === 0;
@@ -52,10 +61,10 @@ export function SearchForm({ children }: SearchFormProps) {
             <View style={styles.searchQueryPart}>
                 {children}
             </View>
-            <View style={styles['search-meal-type']}>
+            <View style={styles['search-dish-type']}>
                 <Dropdown
-                    label={'Wybierz typ posiłku:'}
-                    options={mealTypeOptions}
+                    label={'Wybierz typ dania:'}
+                    options={dishTypeOptions}
                     selectedValue={type}
                     onSelectValue={onSelectType}
                 />
@@ -76,7 +85,7 @@ const styles = StyleSheet.create({
         marginTop: 20,
         marginBottom: 15
     },
-    'search-meal-type': {
+    'search-dish-type': {
         ...constantStyles.flexCenter
     }
 });
