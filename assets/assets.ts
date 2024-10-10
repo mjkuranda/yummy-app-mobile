@@ -6,6 +6,7 @@ import yummyLogo from './images/yummy.png';
 import noPhotoImage from './images/no-image.png';
 import loadingImage from './images/loading.png';
 import ukFlagImage from './images/uk.png';
+import userImage from './images/user.png'; // https://www.pngegg.com/en/png-oouaw
 
 import authorImage from '@/assets/images/dish-details/author.png';
 import ingNotImage from '@/assets/images/dish-details/ing-not.png';
@@ -63,6 +64,7 @@ export {
     noPhotoImage,
     loadingImage,
     ukFlagImage,
+    userImage,
 
     categoriesJson
 };

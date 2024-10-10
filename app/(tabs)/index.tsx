@@ -28,7 +28,7 @@ export default function HomeScreen() {
                     description="Tworzy i skupia społeczność, którzy również chcą podzielić się swoimi posiłkami, bądź promować już dodane."
                     image={integrateImage}
                     authorInfo={'Image by <a href="https://pixabay.com/users/surprising_snapshots-11873433/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=7530848">Mircea Iancu</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=7530848">Pixabay</a>'}
-                    link="/users/login"
+                    link="/login"
                 />
             </View>
             <Footer />

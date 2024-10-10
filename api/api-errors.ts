@@ -1,3 +1,7 @@
+import { UserContextValues } from '@/contexts/user.context';
+import { Alert } from 'react-native';
+import { Router } from 'expo-router';
+
 type HttpStatusCode =
     | 200  // OK
     | 201  // Created
@@ -72,18 +76,18 @@ export function throwApiError(res: ApiErrorResponse): never {
     throw new Error('Wystąpił nieoczekiwany błąd.');
 }
 
-// export function handleApiError(err: ApiError, router: AppRouterInstance, userContext: UserContextValues): void {
-//     if (err instanceof UnauthorizedError) {
-//         toastInfo('Twoja sesja wygasła. Zaloguj się ponownie.');
-//         router.push('/users/login');
-//         userContext.logoutUser();
-//     }
-//
-//     if (err instanceof ForbiddenError) {
-//         toastError('Nie jesteś uprawniony do wykonywania akcji admina.');
-//         router.push('/');
-//     }
-// }
+export function handleApiError(err: ApiError, router: Router, userContext: UserContextValues): void {
+    if (err instanceof UnauthorizedError) {
+        Alert.alert('Twoja sesja wygasła. Zaloguj się ponownie.');
+        router.push('/login');
+        userContext.logoutUser();
+    }
+
+    if (err instanceof ForbiddenError) {
+        Alert.alert('Nie jesteś uprawniony do wykonywania akcji admina.');
+        router.push('/');
+    }
+}
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 function getBadRequestMessage(message: string, context: ApiErrorContext): string {

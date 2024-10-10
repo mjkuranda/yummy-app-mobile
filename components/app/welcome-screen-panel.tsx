@@ -3,10 +3,9 @@ import { constantStyles } from '@/constants/styles';
 import { blueDeFranceAlpha, honeyYellow } from '@/constants/colors';
 import { Heading } from '@/components/common/heading';
 import { Button } from '@/components/common/button';
+import { isLoggedIn } from '@/contexts/user.context';
 
 export function WelcomeScreenPanel() {
-    const isLoggedIn = () => false;
-
     return (
         <View style={styles.mainContainer}>
             <Heading level={1} style={styles.headerPanel}>Yummy</Heading>
