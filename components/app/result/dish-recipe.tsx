@@ -22,7 +22,7 @@ export function DishRecipe({ recipe }: DishRecipeProps) {
             {recipe && recipe.map(section => {
                 return (
                     <View style={styles['instruction-section']} key={section.name}>
-                        <Heading level={5}>Przepis{section.name ? `na ${section.name}` : ''}:</Heading>
+                        <Heading level={5}>{section.name ? section.name : 'Przepis'}:</Heading>
                         <View>
                             {section.steps.map((step, idx) => {
                                 // NOTE: Index is okay, because it's a static list

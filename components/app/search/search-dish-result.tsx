@@ -89,6 +89,7 @@ const styles = StyleSheet.create({
     },
     'result-description': {},
     'result-title': {
+        paddingHorizontal: 10,
         paddingVertical: 10,
         fontWeight: 'bold',
         textAlign: 'center'
