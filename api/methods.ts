@@ -1,7 +1,7 @@
 import { ApiErrorResponse, throwApiError } from '@/api/api-errors';
 
 // TODO: .env file to get API_URL
-export const API_URL = 'http://192.168.1.111:3001';
+export const API_URL = 'http://192.168.0.220:3001';
 
 export async function apiGet<T>(endpointUrl: string): Promise<T> {
     const res = await fetch(`${API_URL}/${endpointUrl}`, {

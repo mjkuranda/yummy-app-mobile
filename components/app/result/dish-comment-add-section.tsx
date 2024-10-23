@@ -1,6 +1,9 @@
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useEffect, useState } from 'react';
-import { StyleSheet, Text } from 'react-native';
+import { StyleSheet, TouchableOpacity, View } from 'react-native';
+import { Input } from '@/components/common/input';
+import { Loader } from '@/components/common/loader';
+import { Icon } from '@/components/common/icon';
 
 interface DishCommentAddSectionProps {
     // refetch: () => Promise<QueryObserverResult<MealComment[], Error>>;
@@ -19,13 +22,6 @@ export function DishCommentAddSection({ refetch }: DishCommentAddSectionProps) {
             setCommentValue('');
         }
     }, [isPosting]);
-
-    // FIXME: Remove this
-    const onKeyDown = (e: KeyboardEvent): void => {
-        // if (e.key === 'Enter') {
-        //     onAddComment();
-        // }
-    };
 
     const onAddComment = async () => {
         setIsPosting(true);
@@ -47,20 +43,34 @@ export function DishCommentAddSection({ refetch }: DishCommentAddSectionProps) {
     };
 
     return (
-        // <div className={styles['meal-comment-add-section']}>
-        //     <div className={styles['meal-comment-add-section__input']}>
-        //         <InputString label={'Nowy komentarz'} value={commentValue} setValue={setCommentValue} onKeyDown={onKeyDown} />
-        //         <div className={styles['meal-comment-add-section__send-icon']}>
-        //             {isPosting ? <Loader /> : <SendIconButton onClick={onAddComment} disabled={commentValue.length === 0} />}
-        //         </div>
-        //     </div>
-        // </div>
-        <Text>X</Text>
+        <View style={styles['dish-comment-add-section']}>
+            <View style={styles['dish-comment-add-section__input']}>
+                <Input label={'Nowy komentarz'} value={commentValue} onChange={setCommentValue} />
+                <View style={styles['dish-comment-add-section__send-icon']}>
+                    {isPosting
+                        ? <Loader />
+                        : (
+                            <TouchableOpacity onPress={onAddComment} disabled={commentValue.length === 0}>
+                                <Icon type="post" size={32} />
+                            </TouchableOpacity>
+                        )
+                    }
+                </View>
+            </View>
+        </View>
     );
 }
 
 const styles = StyleSheet.create({
-    'meal-comment-add-section': {},
-    'meal-comment-add-section__input': {},
-    'meal-comment-add-section__send-icon': {}
+    'dish-comment-add-section': {
+        marginVertical: 8
+    },
+    'dish-comment-add-section__input': {
+        flexDirection: 'row',
+        justifyContent: 'center'
+    },
+    'dish-comment-add-section__send-icon': {
+        marginTop: 24,
+        marginLeft: 8
+    }
 });
