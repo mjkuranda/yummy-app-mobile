@@ -3,10 +3,13 @@ import { WelcomeScreen } from '@/components/app/welcome-screen';
 import { InformationScreen } from '@/components/app/information-screen';
 import { Footer } from '@/components/common/footer';
 import { fridgeImage, integrateImage, dishesImage } from '@/assets/assets';
+import { useSmoothScreenScroll } from '@/hooks/use-smooth-screen-scroll';
 
 export default function HomeScreen() {
+    const { scrollViewRef, onScroll } = useSmoothScreenScroll();
+
     return (
-        <ScrollView>
+        <ScrollView ref={scrollViewRef} onScroll={onScroll} scrollEventThrottle={16.67}>
             <WelcomeScreen />
             <View>
                 <InformationScreen
@@ -31,7 +34,7 @@ export default function HomeScreen() {
                     link="/login"
                 />
             </View>
-            <Footer />
+            <Footer isFull={true} />
         </ScrollView>
     );
 }

@@ -8,7 +8,7 @@ import { isLoggedIn } from '@/contexts/user.context';
 export function WelcomeScreenPanel() {
     return (
         <View style={styles.mainContainer}>
-            <Heading level={1} style={styles.headerPanel}>Yummy</Heading>
+            <Heading level={1} style={styles.headerPanel}>DishMatcher</Heading>
             <View style={styles.buttonContainer}>
                 <Button label="Szukaj po składnikach" link="/search" />
                 <Button label="Propozycja dnia" link="/dish-proposal" disabled={!isLoggedIn()} disabledInfo="Zaloguj się, aby uzyskać rekomendacje dań." />
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
         textShadowOffset: { width: 2, height: 2 },
         textShadowRadius: 2,
         color: honeyYellow,
-        paddingVertical: 10,
+        paddingVertical: 15,
         paddingHorizontal: 20,
         borderRadius: 10,
         backgroundColor: blueDeFranceAlpha
