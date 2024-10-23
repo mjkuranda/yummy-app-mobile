@@ -1,19 +1,16 @@
 import { Link, useLocalSearchParams } from 'expo-router';
 import { Dimensions, StyleSheet, Text, View } from 'react-native';
-import { DishComment } from '@/types/dish.types';
 import { Heading } from '@/components/common/heading';
 import { Loader } from '@/components/common/loader';
 import { DishCommentContent } from '@/components/app/result/dish-comment-content';
 import { isLoggedIn } from '@/contexts/user.context';
 import { DishCommentAddSection } from '@/components/app/result/dish-comment-add-section';
 import { spanishBlue } from '@/constants/colors';
+import { useGetDishComments } from '@/hooks/use-get-dish-comments';
 
 export function DishCommentContainer() {
     const { id } = useLocalSearchParams<{ id: string }>();
-    // const { data, isLoading, refetch } = useGetMealComments(id);
-    const data: DishComment[] = [];
-    const isLoading = false;
-    const refetch = () => {};
+    const { data, isLoading, refetch } = useGetDishComments(id);
 
     return (
         <View style={styles['dish-comment-container']}>

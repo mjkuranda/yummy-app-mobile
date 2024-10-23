@@ -1,12 +1,12 @@
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useEffect, useState } from 'react';
-import { StyleSheet, TouchableOpacity, View } from 'react-native';
+import { Alert, StyleSheet, TouchableOpacity, View } from 'react-native';
 import { Input } from '@/components/common/input';
 import { Loader } from '@/components/common/loader';
 import { Icon } from '@/components/common/icon';
+import { postNewComment } from '@/api/api';
 
 interface DishCommentAddSectionProps {
-    // refetch: () => Promise<QueryObserverResult<MealComment[], Error>>;
     refetch: () => void;
 }
 
@@ -27,16 +27,20 @@ export function DishCommentAddSection({ refetch }: DishCommentAddSectionProps) {
         setIsPosting(true);
 
         try {
-            // await postNewComment({
-            //     mealId: id,
-            //     text: commentValue
-            // });
-            //
-            // await refetch();
+            await postNewComment({
+                dishId: id,
+                text: commentValue
+            });
+
+            refetch();
         } catch (err: unknown) {
             // if (err instanceof ApiError) {
             //     handleApiError(err, router, userContext);
             // }
+            // Alert.alert(err.message);
+            // NOTE: Possibly tokens do not match
+            // FIXME: Refresh token every some time
+            Alert.alert('Błąd. Komentarz nie został dodany.');
         } finally {
             setIsPosting(false);
         }
