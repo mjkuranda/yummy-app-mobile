@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Dimensions, NativeScrollEvent, NativeSyntheticEvent, ScrollView } from 'react-native';
 
 export function useSmoothScreenScroll() {
@@ -6,31 +6,44 @@ export function useSmoothScreenScroll() {
     const lastScrollY = useRef(0);
     const scrollViewRef = useRef<ScrollView>(null);
     const [currentOffset, setCurrentOffset] = useState(0); // Przechowuje aktualny offset (pozycja scrolla)
+    const [screen, setScreen] = useState<number>(0);
 
     const screenHeight = Dimensions.get('window').height;
 
-    const scrollDown = () => {
+    useEffect(() => {
+        if (screen === 3) {
+            setScreen(4);
+
+            return;
+        }
+
+        const newScreen = currentOffset / Dimensions.get('window').height;
+
+        setScreen(newScreen);
+    }, [currentOffset]);
+
+    const scrollDown = (offset: number = screenHeight) => {
         if (scrollViewRef.current) {
-            const newOffset = currentOffset + screenHeight;
+            const newOffset = currentOffset + offset;
             scrollViewRef.current.scrollTo({ y: newOffset, animated: true });
             setCurrentOffset(newOffset);
+            setScrollDirection('down');
             lastScrollY.current = newOffset;
         }
     };
 
-    const scrollUp = () => {
+    const scrollUp = (offset: number = screenHeight) => {
         if (scrollViewRef.current) {
-            const newOffset = Math.max(0, currentOffset - screenHeight);
+            const newOffset = Math.max(0, currentOffset - offset);
             scrollViewRef.current.scrollTo({ y: newOffset, animated: true });
             setCurrentOffset(newOffset);
+            setScrollDirection('up');
             lastScrollY.current = newOffset;
         }
     };
 
     const onScroll = (event: NativeSyntheticEvent<NativeScrollEvent>): void => {
         const currentScrollY = event.nativeEvent.contentOffset.y;
-
-        // console.log(scrollDirection, currentScrollY, currentOffset);
 
         if (scrollDirection === 'down' && currentScrollY < currentOffset) {
             return;
@@ -46,17 +59,11 @@ export function useSmoothScreenScroll() {
             return;
         }
 
-        console.log(currentScrollY, lastScrollY.current);
-
         if (currentScrollY > lastScrollY.current) {
-            setScrollDirection('down');
             scrollDown();
         } else if (currentScrollY < lastScrollY.current) {
-            setScrollDirection('up');
             scrollUp();
         }
-
-        // lastScrollY.current = currentScrollY;
     };
 
     return { scrollViewRef, onScroll };

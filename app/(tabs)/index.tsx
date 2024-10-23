@@ -34,7 +34,7 @@ export default function HomeScreen() {
                     link="/login"
                 />
             </View>
-            <Footer />
+            <Footer isFull={true} />
         </ScrollView>
     );
 }
