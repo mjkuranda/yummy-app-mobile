@@ -10,7 +10,7 @@ export function Footer() {
                 <Text style={constantStyles.textCenter}>Wszelkie prawa zastrzeżone</Text>
                 <View style={styles.authorInformation}>
                     <Heading level={3} style={constantStyles.textCenter}>Marek Kurańda</Heading>
-                    <Heading level={4} style={constantStyles.textCenter}>Yummy &copy; 2024</Heading>
+                    <Heading level={4} style={constantStyles.textCenter}>DishMatcher &copy; 2024</Heading>
                 </View>
             </View>
         </View>

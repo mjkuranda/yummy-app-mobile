@@ -10,7 +10,7 @@ export function Header() {
             <View style={styles.container}>
                 <View style={styles.leftContent}>
                     <Image style={styles.logo} source={yummyLogo} />
-                    <Heading level={1} style={{ marginLeft: 10 }}>Yummy</Heading>
+                    <Heading level={1} style={{ marginLeft: 10 }}>DishMatcher</Heading>
                 </View>
                 {/*<View style={constantStyles.flexCenter}>*/}
                 {/*    <User />*/}
