@@ -52,7 +52,7 @@ export function DishCommentAddSection({ refetch }: DishCommentAddSectionProps) {
                 <Input label={'Nowy komentarz'} value={commentValue} onChange={setCommentValue} />
                 <View style={styles['dish-comment-add-section__send-icon']}>
                     {isPosting
-                        ? <Loader />
+                        ? <Loader size={30} />
                         : (
                             <TouchableOpacity onPress={onAddComment} disabled={commentValue.length === 0}>
                                 <Icon type="post" size={32} />
@@ -70,8 +70,7 @@ const styles = StyleSheet.create({
         marginVertical: 8
     },
     'dish-comment-add-section__input': {
-        flexDirection: 'row',
-        justifyContent: 'center'
+        flexDirection: 'row'
     },
     'dish-comment-add-section__send-icon': {
         marginTop: 24,

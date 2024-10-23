@@ -1,9 +1,14 @@
 import React, { useEffect, useRef } from 'react';
-import { Animated, View, StyleSheet, Easing } from 'react-native';
+import { Animated, View, StyleSheet, Easing, DimensionValue } from 'react-native';
 import { loadingImage } from '@/assets/assets';
 
-export function Loader() {
+interface LoaderProps {
+    size?: DimensionValue
+}
+
+export function Loader({ size }: LoaderProps) {
     const rotationValue = useRef(new Animated.Value(0)).current;
+    const styles = withSizeStyles(size);
 
     const startRotation = () => {
         Animated.loop(
@@ -34,15 +39,16 @@ export function Loader() {
         </View>
     );
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    image: {
-        width: 100,
-        height: 100, // Rozmiar obrazka
-    },
-});
+function withSizeStyles(size: DimensionValue = 100) {
+    return StyleSheet.create({
+        container: {
+            flex: 1,
+            justifyContent: 'center',
+            alignItems: 'center',
+        },
+        image: {
+            width: size,
+            height: size
+        },
+    });
+}

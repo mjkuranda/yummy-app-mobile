@@ -5,7 +5,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.14.0] - 2024-10-23
 ### Added
-- [Marek Kurańda](https://github.com/mjkuranda): Posting comments underneath any dish for logged-in user.
+- [Marek Kurańda](https://github.com/mjkuranda): Posting (for logged-in users) and rendering comments underneath any dish.
 
 ### Fixed
 - [Marek Kurańda](https://github.com/mjkuranda): Loading dish images.
