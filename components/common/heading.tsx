@@ -1,10 +1,10 @@
 import React, { ReactNode } from 'react';
-import { StyleSheet, Text } from 'react-native';
+import { StyleSheet, Text, ViewStyle } from 'react-native';
 
 interface HeadingProps {
     level: 1 | 2 | 3 | 4 | 5;
     children: ReactNode;
-    style?: Record<any, any>;
+    style?: ViewStyle;
 }
 
 export function Heading({ level, children, style }: HeadingProps) {

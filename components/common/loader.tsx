@@ -3,12 +3,13 @@ import { Animated, View, StyleSheet, Easing, DimensionValue } from 'react-native
 import { loadingImage } from '@/assets/assets';
 
 interface LoaderProps {
-    size?: DimensionValue
+    size?: DimensionValue;
+    isFlex?: boolean;
 }
 
-export function Loader({ size }: LoaderProps) {
+export function Loader({ size, isFlex }: LoaderProps) {
     const rotationValue = useRef(new Animated.Value(0)).current;
-    const styles = withSizeStyles(size);
+    const styles = withSizeStyles(size, isFlex);
 
     const startRotation = () => {
         Animated.loop(
@@ -39,10 +40,10 @@ export function Loader({ size }: LoaderProps) {
         </View>
     );
 }
-function withSizeStyles(size: DimensionValue = 100) {
+function withSizeStyles(size: DimensionValue = 100, isFlex: boolean = true) {
     return StyleSheet.create({
         container: {
-            flex: 1,
+            ...(isFlex && { flex: 1 }),
             justifyContent: 'center',
             alignItems: 'center',
         },
