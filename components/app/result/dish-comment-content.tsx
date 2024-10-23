@@ -36,9 +36,9 @@ export function DishCommentContent({ data }: DishCommentContentProps) {
                 return (
                     <View key={comment._id} style={styles['dish-comment-item']}>
                         <View style={styles['dish-comment-item__header']}>
-                            <View>
+                            <View style={styles['dish-comment-item__author-container']}>
                                 <Icon type="author" />
-                                <Text>{comment.user}</Text>
+                                <Text style={{ marginLeft: 4, marginRight: 6, fontWeight: '500' }}>{comment.user}</Text>
                             </View>
                             <Text style={styles['dish-comment-item__posted']}>{getPostedText(comment.posted)}</Text>
                         </View>
@@ -51,7 +51,19 @@ export function DishCommentContent({ data }: DishCommentContentProps) {
 }
 
 const styles = StyleSheet.create({
-    'dish-comment-item': {},
-    'dish-comment-item__header': {},
-    'dish-comment-item__posted': {}
+    'dish-comment-item': {
+        marginVertical: 8
+    },
+    'dish-comment-item__header': {
+        flexDirection: 'row'
+    },
+    'dish-comment-item__author-container': {
+        flexDirection: 'row'
+    },
+    'dish-comment-item__posted': {
+        fontStyle: 'italic',
+        fontWeight: '200',
+        fontSize: 10,
+        marginTop: 3
+    }
 });

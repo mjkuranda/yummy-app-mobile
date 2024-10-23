@@ -7,6 +7,7 @@ import noPhotoImage from './images/no-image.png';
 import loadingImage from './images/loading.png';
 import ukFlagImage from './images/uk.png';
 import userImage from './images/user.png'; // https://www.pngegg.com/en/png-oouaw
+import postImage from './images/post.png';
 
 import authorImage from '@/assets/images/dish-details/author.png';
 import ingNotImage from '@/assets/images/dish-details/ing-not.png';
@@ -65,6 +66,7 @@ export {
     loadingImage,
     ukFlagImage,
     userImage,
+    postImage,
 
     categoriesJson
 };

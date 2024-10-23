@@ -1,26 +1,30 @@
-import { Image, StyleSheet } from 'react-native';
-import { dishDetailsImages, userImage } from '@/assets/assets';
+import { DimensionValue, Image, StyleSheet } from 'react-native';
+import { dishDetailsImages, userImage, postImage } from '@/assets/assets';
 
 const { authorImage, providerImage, timeImage, ingNotImage, ingYesImage, starEmptyImage, starHalfImage, starFullImage } = dishDetailsImages;
 
-type IconType = 'author' | 'dish-type' | 'time' | 'wrong' | 'tick' | 'star-empty' | 'star-half' | 'star-full' | 'user';
+type IconType = 'author' | 'dish-type' | 'time' | 'wrong' | 'tick' | 'star-empty' | 'star-half' | 'star-full' | 'user' | 'post';
 
 interface IconProps {
     type: IconType;
+    size?: DimensionValue;
 }
 
-export function Icon({ type }: IconProps) {
+export function Icon({ type, size = 16 }: IconProps) {
     const source = getSource(type);
+    const styles = withSizeStyles(size);
 
     return <Image style={styles.icon} source={source} />;
 }
 
-const styles = StyleSheet.create({
-    icon: {
-        width: 16,
-        height: 16
-    }
-});
+function withSizeStyles(size: DimensionValue) {
+    return StyleSheet.create({
+        icon: {
+            width: size,
+            height: size
+        }
+    });
+}
 
 function getSource(type: IconType) {
     switch (type) {
@@ -33,6 +37,7 @@ function getSource(type: IconType) {
     case 'star-half': return starHalfImage;
     case 'star-full': return starFullImage;
     case 'user': return userImage;
+    case 'post': return postImage;
     default: return null;
     }
 }

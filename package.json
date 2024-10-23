@@ -1,7 +1,7 @@
 {
   "name": "yummy-app-mobile",
   "main": "expo-router/entry",
-  "version": "1.13.3",
+  "version": "1.14.0",
   "private": true,
   "scripts": {
     "start": "expo start",

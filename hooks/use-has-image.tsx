@@ -13,15 +13,18 @@ export function useHasImage(imgUrl?: string): useHasImageReturnType {
     useEffect(() => {
         if (!imgUrl) {
             setIsLoading(false);
+            setHasImage(false);
 
             return;
         }
+
+        setIsLoading(true);
 
         checkImageUrl(imgUrl)
             .then(result => setHasImage(result))
             .catch(() => setHasImage(false))
             .finally(() => setIsLoading(false));
-    }, []);
+    }, [imgUrl]);
 
     return { hasImage, isLoading };
 }
