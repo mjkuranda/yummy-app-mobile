@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.17.0] - 2024-10-24
 ### Added
 - [Marek Kurańda](https://github.com/mjkuranda): Black-transparent overlay at landing page.
+- [Marek Kurańda](https://github.com/mjkuranda): `react-native-vector-icons` library.
+- [Marek Kurańda](https://github.com/mjkuranda): More icons.
+
+### Removed
+- [Marek Kurańda](https://github.com/mjkuranda): `Icon` component.
 
 ## [1.16.0] - 2024-10-23
 ### Added

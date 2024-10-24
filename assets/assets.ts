@@ -9,15 +9,6 @@ import ukFlagImage from './images/uk.png';
 import userImage from './images/user.png'; // https://www.pngegg.com/en/png-oouaw
 import postImage from './images/post.png';
 
-import authorImage from '@/assets/images/dish-details/author.png';
-import ingNotImage from '@/assets/images/dish-details/ing-not.png';
-import ingYesImage from '@/assets/images/dish-details/ing-yes.png';
-import providerImage from '@/assets/images/dish-details/provider.png';
-import starEmptyImage from '@/assets/images/dish-details/star-empty.png';
-import starHalfImage from '@/assets/images/dish-details/star-half.png';
-import starFullImage from '@/assets/images/dish-details/star-full.png';
-import timeImage from '@/assets/images/dish-details/time.png';
-
 import categoriesJson from './data/categories.json';
 import breadsJson from './data/ingredients/breads.json';
 import dairyAndEggsJson from './data/ingredients/dairy-and-eggs.json';
@@ -43,17 +34,6 @@ export const ingredientCategories = {
     'seeds-and-nuts': seedsAndNutsJson,
     'spices': spicesJson,
     'vegetables': vegetablesJson
-};
-
-export const dishDetailsImages = {
-    authorImage,
-    ingNotImage,
-    ingYesImage,
-    providerImage,
-    starEmptyImage,
-    starHalfImage,
-    starFullImage,
-    timeImage
 };
 
 export {

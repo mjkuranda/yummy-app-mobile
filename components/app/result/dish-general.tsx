@@ -7,7 +7,9 @@ import { DishDescription } from '@/components/app/result/dish-description';
 import { DishIngredients } from '@/components/app/result/dish-ingredients';
 import { DishRecipe } from '@/components/app/result/dish-recipe';
 import { DishRating } from '@/components/app/result/dish-rating';
-import { Icon } from '@/components/common/icon';
+import FontAwesomeIcons from 'react-native-vector-icons/FontAwesome';
+import FontAwesome5Icons from 'react-native-vector-icons/FontAwesome5';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 interface DishGeneralProps {
     dish: DetailedDish;
@@ -33,9 +35,9 @@ export function DishGeneral({ dish, description, ingredients, recipe }: DishGene
             </View>
             <View>
                 <DishRating />
-                <Text>Czas wykonania: <Icon type="time" />{dish.readyInMinutes} minut</Text>
-                <Text>Typ dania: <Icon type="dish-type" />{DishTypeText[dish.mealType][dish.type].pl}</Text>
-                <Text>Autor: <Icon type="author" />{dish.sourceOrAuthor} {dish.provider === 'spoonacular' ? '(poprzez Spoonacular)' : ''}</Text>
+                <Text>Czas wykonania: <MaterialCommunityIcons name="clock-time-four-outline" size={16} />{dish.readyInMinutes} minut</Text>
+                <Text>Typ dania: <FontAwesomeIcons name="cutlery" /> {DishTypeText[dish.mealType][dish.type].pl}</Text>
+                <Text>Autor: <FontAwesome5Icons name="user-plus" /> {dish.sourceOrAuthor} {dish.provider === 'spoonacular' ? '(poprzez Spoonacular)' : ''}</Text>
             </View>
             <View style={{ marginTop: 8 }}>
                 <DishDescription description={description} dish={dish} />
@@ -57,7 +59,5 @@ const styles = StyleSheet.create({
     imageContainer: {
         margin: 'auto'
     },
-    uk: {
-        marginLeft: 16
-    }
+    uk: {}
 });

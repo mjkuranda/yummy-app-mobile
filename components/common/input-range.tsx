@@ -33,11 +33,6 @@ export function InputRange({ settings, onChange }: InputRangeProps) {
 
 const styles = StyleSheet.create({
     container: {
-        // flex: 1,
-        // marginLeft: 10,
-        // marginRight: 10,
-        // alignItems: 'stretch',
-        // justifyContent: 'center',
-        width: 90
+        width: 120
     }
 });

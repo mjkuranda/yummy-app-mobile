@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
-import { Icon } from '@/components/common/icon';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 interface DishRatingStarsProps {
     rating: number;
@@ -68,14 +68,16 @@ const styles = StyleSheet.create({
     }
 });
 
+const starSize = 24;
+
 function StarIcon() {
-    return <Icon type="star-full" />;
+    return <Icon name="star" color="yellow" size={starSize} />;
 }
 
 function StarHalfIcon() {
-    return <Icon type="star-half" />;
+    return <Icon name="star-half" color="yellow" size={starSize} />;
 }
 
 function StarBorderIcon() {
-    return <Icon type="star-empty" />;
+    return <Icon name="star-border" color="yellow" size={starSize} />;
 }

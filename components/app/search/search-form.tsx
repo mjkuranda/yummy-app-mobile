@@ -7,6 +7,9 @@ import { encodeIngredients } from '@/helpers/query.helper';
 import { useSearchContext } from '@/contexts/search.context';
 import { DishTypeText } from '@/types/dish.types';
 import { Dropdown } from '@/components/common/dropdown';
+import FontAwesomeIcons from 'react-native-vector-icons/FontAwesome';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import { isLoggedIn } from '@/contexts/user.context';
 
 interface SearchFormProps {
     children: ReactNode;
@@ -43,13 +46,15 @@ export function SearchForm({ children }: SearchFormProps) {
             return router.push('/search');
         }
 
-        // try {
-        //     await addMealProposal(ingredients);
-        // } catch (err: any) {
-        //     if (!(err instanceof UnauthorizedError)) {
-        //         toastError(`Error occurred while adding a new meal proposal: ${err.message}`);
-        //     }
-        // }
+        if (isLoggedIn()) {
+            // try {
+            //     await addMealProposal(ingredients);
+            // } catch (err: any) {
+            //     if (!(err instanceof UnauthorizedError)) {
+            //         toastError(`Error occurred while adding a new meal proposal: ${err.message}`);
+            //     }
+            // }
+        }
 
         router.push(`/search?ings=${encodeIngredients(ingredientList)}&dish=${type || 'any'}`);
     };
@@ -63,6 +68,7 @@ export function SearchForm({ children }: SearchFormProps) {
             </View>
             <View style={styles['search-dish-type']}>
                 <Dropdown
+                    icon={<FontAwesomeIcons name="cutlery" />}
                     label={'Wybierz typ dania:'}
                     options={dishTypeOptions}
                     selectedValue={type}
@@ -70,8 +76,8 @@ export function SearchForm({ children }: SearchFormProps) {
                 />
             </View>
             <View style={styles.searchButtonContainer}>
-                <Button label={'Wyczyść'} onClick={onClearFilters} disabled={isSearchDisabled} />
-                <Button label="Szukaj" onClick={onSubmit} disabled={isSearchDisabled}
+                <Button label="Wyczyść" icon={<MaterialIcons name="clear" color="white" size={16} />} onClick={onClearFilters} disabled={isSearchDisabled} />
+                <Button label="Szukaj" icon={<MaterialIcons name="search" color="white" size={16} />} onClick={onSubmit} disabled={isSearchDisabled}
                     disabledInfo="Zaznacz składniki, aby wyszukać posiłki." />
             </View>
         </View>
@@ -86,6 +92,6 @@ const styles = StyleSheet.create({
         marginBottom: 15
     },
     'search-dish-type': {
-        ...constantStyles.flexCenter
+        ...constantStyles.flexCenter,
     }
 });

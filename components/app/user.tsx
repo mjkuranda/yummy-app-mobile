@@ -1,6 +1,6 @@
 import { Alert, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import { Link } from 'expo-router';
-import { Icon } from '@/components/common/icon';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import { blueDeFranceAlpha, honeyYellow } from '@/constants/colors';
 import { getUser, isLoggedIn, logoutUser } from '@/contexts/user.context';
 import { useState } from 'react';
@@ -21,8 +21,8 @@ export function User() {
             <TouchableOpacity>
                 <Link href="/login" style={styles.link} onPress={onLogout}>
                     <Text>Wyloguj się, </Text>
-                    <Text style={{ fontWeight: 800 }}>{getUser().login} </Text>
-                    <Icon type={'user'} />
+                    <Text style={{ fontWeight: 800 }}>{getUser().login}  </Text>
+                    <Icon name="user" />
                 </Link>
             </TouchableOpacity>
         );
@@ -31,8 +31,8 @@ export function User() {
     return (
         <TouchableOpacity>
             <Link href="/login" style={styles.link}>
-                <Text>Zaloguj się </Text>
-                <Icon type={'user'} />
+                <Text>Zaloguj się  </Text>
+                <Icon name="user" />
             </Link>
         </TouchableOpacity>
     );
