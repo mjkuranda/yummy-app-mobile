@@ -1,7 +1,7 @@
 import { DishComment } from '@/types/dish.types';
 import { HOUR, MINUTE, SECOND } from '@/constants/numbers';
 import { StyleSheet, Text, View } from 'react-native';
-import { Icon } from '@/components/common/icon';
+import FontAwesomeIcons from 'react-native-vector-icons/FontAwesome';
 
 interface DishCommentContentProps {
     data: DishComment[];
@@ -37,7 +37,7 @@ export function DishCommentContent({ data }: DishCommentContentProps) {
                     <View key={comment._id} style={styles['dish-comment-item']}>
                         <View style={styles['dish-comment-item__header']}>
                             <View style={styles['dish-comment-item__author-container']}>
-                                <Icon type="author" />
+                                <FontAwesomeIcons name="user" size={16} style={{ marginTop: 2 }} />
                                 <Text style={{ marginLeft: 4, marginRight: 6, fontWeight: '500' }}>{comment.user}</Text>
                             </View>
                             <Text style={styles['dish-comment-item__posted']}>{getPostedText(comment.posted)}</Text>
@@ -64,6 +64,6 @@ const styles = StyleSheet.create({
         fontStyle: 'italic',
         fontWeight: '200',
         fontSize: 10,
-        marginTop: 3
+        marginTop: 3.5
     }
 });

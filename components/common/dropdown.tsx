@@ -2,6 +2,7 @@ import SelectDropdown from 'react-native-select-dropdown';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { StyleSheet, Text, View } from 'react-native';
 import { honeyYellow } from '@/constants/colors';
+import { ReactNode } from 'react';
 
 interface Option {
     en: string;
@@ -10,15 +11,16 @@ interface Option {
 
 interface DropdownProps {
     label: string;
+    icon?: ReactNode;
     options: Option[];
     selectedValue: string;
     onSelectValue: (newValue: string) => void;
 }
 
-export function Dropdown({ label, options, selectedValue, onSelectValue }: DropdownProps) {
+export function Dropdown({ label, icon, options, selectedValue, onSelectValue }: DropdownProps) {
     return (
         <View style={{ marginVertical: 12 }}>
-            <Text style={{ textAlign: 'center', marginBottom: 6 }}>{label}</Text>
+            <Text style={{ textAlign: 'center', marginBottom: 6 }}>{icon}{icon && '  '}{label}</Text>
             <SelectDropdown
                 data={options}
                 onSelect={selectedItem => {

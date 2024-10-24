@@ -1,10 +1,11 @@
 import { useGetDishProposals } from '@/api/endpoints';
 import { Dimensions, StyleSheet, Text, View } from 'react-native';
 import { Loader } from '@/components/common/loader';
-import { honeyYellow } from '@/constants/colors';
+import { honeyYellow, orangeYellowCrayola } from '@/constants/colors';
 import { constantStyles } from '@/constants/styles';
 import { DishImage } from '@/components/app/result/dish-image';
 import { Button } from '@/components/common/button';
+import Icon from 'react-native-vector-icons/AntDesign';
 
 export function DishProposalContainer() {
     const { isLoading, getCurrentProposal, onPrevious, onNext, onChoose } = useGetDishProposals();
@@ -27,8 +28,8 @@ export function DishProposalContainer() {
                         <DishImage provider={currentProposal!.provider} imgUrl={currentProposal!.imgUrl} />
                         <Text style={styles.proposalTitle}>{currentProposal!.title}</Text>
                         <View style={styles.navigationContainer}>
-                            <Button label="Poprzednia" onClick={onPrevious} width={150} />
-                            <Button label="Następna" onClick={onNext} width={150} />
+                            <Button label="Poprzednia" icon={<Icon name="caretleft" color="white" />} iconLeft={true} onClick={onPrevious} width={150} />
+                            <Button label="Następna"  icon={<Icon name="caretright" color="white" />} onClick={onNext} width={150} />
                         </View>
                         <View style={styles.chooseContainer}>
                             <Button label="Wybierz" onClick={onChoose} width={330} />
@@ -44,7 +45,7 @@ const styles = StyleSheet.create({
     proposalContainer: {
         width: Dimensions.get('window').width,
         minHeight: Dimensions.get('window').height - 335,
-        backgroundColor: honeyYellow
+        backgroundColor: orangeYellowCrayola
     },
     proposalContainerWithNoProposals: {
         width: Dimensions.get('window').width,

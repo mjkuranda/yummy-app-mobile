@@ -6,9 +6,11 @@ import { User } from '@/components/app/user';
 export function WelcomeScreen() {
     return (
         <ImageBackground source={landingImage}>
-            <WelcomeScreenPanel />
-            <View style={styles.userContainer}>
-                <User />
+            <View style={styles.blackOverlay}>
+                <WelcomeScreenPanel />
+                <View style={styles.userContainer}>
+                    <User />
+                </View>
             </View>
         </ImageBackground>
     );
@@ -18,6 +20,9 @@ const styles = StyleSheet.create({
     mainContainer: {
         width: Dimensions.get('window').width,
         height: Dimensions.get('window').height
+    },
+    blackOverlay: {
+        backgroundColor: '#4446'
     },
     userContainer: {
         position: 'absolute',

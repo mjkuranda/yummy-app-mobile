@@ -1,5 +1,5 @@
 import { Image, StyleSheet, Text, View } from 'react-native';
-import { Icon } from '@/components/common/icon';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 interface DishIngredientElementProps {
     text: string;
@@ -13,7 +13,7 @@ export function DishIngredientElement({ text, imageUrl, contains }: DishIngredie
             <Image style={styles['result-ingredient__image']} src={imageUrl} alt={text} />
             <Text style={styles['result-ingredient__text']}>{text}</Text>
             <View style={styles.iconContainer}>
-                {contains !== null && (contains ? <Icon type="tick" /> : <Icon type="wrong" />)}
+                {contains !== null && (contains ? <Icon name="done" color="green" size={16} /> : <Icon name="clear" color="red" size={16} />)}
             </View>
         </View>
     );

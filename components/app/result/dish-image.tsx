@@ -1,7 +1,7 @@
 import { DishProvider } from '@/types/api.types';
 import { useHasImage } from '@/hooks/use-has-image';
 import { Loader } from '@/components/common/loader';
-import { Dimensions, ImageBackground, StyleSheet } from 'react-native';
+import { Dimensions, ImageBackground, StyleSheet, View } from 'react-native';
 import { noPhotoImage } from '@/assets/assets';
 import { getImageUrlForYummyDishes } from '@/helpers/result.helper';
 
@@ -20,7 +20,11 @@ export function DishImage({ imgUrl, provider }: DishImageProps) {
     };
 
     if (isLoading) {
-        return <Loader />;
+        return (
+            <View style={styles['result-image']}>
+                <Loader />
+            </View>
+        );
     }
 
     return <ImageBackground style={styles['result-image']} {...imageProps} />;
