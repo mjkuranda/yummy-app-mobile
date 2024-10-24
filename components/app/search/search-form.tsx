@@ -10,6 +10,7 @@ import { Dropdown } from '@/components/common/dropdown';
 import FontAwesomeIcons from 'react-native-vector-icons/FontAwesome';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import { isLoggedIn } from '@/contexts/user.context';
+import { addDishProposal } from '@/api/api';
 
 interface SearchFormProps {
     children: ReactNode;
@@ -47,13 +48,11 @@ export function SearchForm({ children }: SearchFormProps) {
         }
 
         if (isLoggedIn()) {
-            // try {
-            //     await addMealProposal(ingredients);
-            // } catch (err: any) {
-            //     if (!(err instanceof UnauthorizedError)) {
-            //         toastError(`Error occurred while adding a new meal proposal: ${err.message}`);
-            //     }
-            // }
+            try {
+                await addDishProposal(ingredientList);
+            } catch (err: any) {
+                // NOTE: Do nothing. It is an extra thing...
+            }
         }
 
         router.push(`/search?ings=${encodeIngredients(ingredientList)}&dish=${type || 'any'}`);

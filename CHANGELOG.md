@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [Marek Kurańda](https://github.com/mjkuranda): Black-transparent overlay at landing page.
 - [Marek Kurańda](https://github.com/mjkuranda): `react-native-vector-icons` library.
 - [Marek Kurańda](https://github.com/mjkuranda): More icons.
+- [Marek Kurańda](https://github.com/mjkuranda): Sending ingredients while searching for feeding proposal system.
 
 ### Removed
 - [Marek Kurańda](https://github.com/mjkuranda): `Icon` component.
