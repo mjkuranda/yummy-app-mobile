@@ -3,6 +3,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.17.2] - 2024-11-20
+### Fixed
+- [Marek Kurańda](https://github.com/mjkuranda): `newArchEnabled` to `true` to avoid an unexpected app behaviour.
+
 ## [1.17.1] - 2024-11-20
 ### Changed
 - [Marek Kurańda](https://github.com/mjkuranda): Bumped up packages related to `expo`, `react` and `react-native`.
