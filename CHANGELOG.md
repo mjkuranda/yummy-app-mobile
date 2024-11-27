@@ -3,10 +3,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.18.0] - 2024-11-20
+## [1.18.0] - 2024-11-27
 ### Added
 - [Marek Kurańda](https://github.com/mjkuranda): New ingredient category - `cereal products`.
 - [Marek Kurańda](https://github.com/mjkuranda): New ingredient element lists with images at search page.
+- [Marek Kurańda](https://github.com/mjkuranda): Pantry ingredient list.
 
 ## [1.17.2] - 2024-11-20
 ### Fixed
