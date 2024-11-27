@@ -8,9 +8,11 @@ import loadingImage from './images/loading.png';
 import ukFlagImage from './images/uk.png';
 import userImage from './images/user.png'; // https://www.pngegg.com/en/png-oouaw
 import postImage from './images/post.png';
+import ingredientImage from './images/ingredient.png';
 
 import categoriesJson from './data/categories.json';
 import breadsJson from './data/ingredients/breads.json';
+import cerealProductsJson from './data/ingredients/cereal-products.json';
 import dairyAndEggsJson from './data/ingredients/dairy-and-eggs.json';
 import fishAndSeafoodJson from './data/ingredients/fish-and-seafood.json';
 import fruitsJson from './data/ingredients/fruits.json';
@@ -22,8 +24,11 @@ import seedsAndNutsJson from './data/ingredients/seeds-and-nuts.json';
 import spicesJson from './data/ingredients/spices.json';
 import vegetablesJson from './data/ingredients/vegetables.json';
 
-export const ingredientCategories = {
+import { IngredientCategoryType } from '@/types/ingredient-category';
+
+export const ingredientCategories: Record<IngredientCategoryType, any> = {
     'breads': breadsJson,
+    'cereal-products': cerealProductsJson,
     'dairy-and-eggs': dairyAndEggsJson,
     'fish-and-seafood': fishAndSeafoodJson,
     'fruits': fruitsJson,
@@ -47,6 +52,7 @@ export {
     ukFlagImage,
     userImage,
     postImage,
+    ingredientImage,
 
     categoriesJson
 };
